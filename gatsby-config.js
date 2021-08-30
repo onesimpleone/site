@@ -1,4 +1,7 @@
-const siteAddress = new URL("https://dr8n3d7xc3lsl.cloudfront.net");
+/**
+ * TODO: заменить на onesimpleone.com
+ */
+const siteAddress = new URL("https://d2wyxqay8p9ua6.cloudfront.net");
 
 module.exports = {
   siteMetadata: {
@@ -32,7 +35,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-s3`,
       options: {
-          bucketName: 'onesimpleone-site',
+          bucketName: 'onesimpleone.com',
+          region: 'eu-central-1',
           protocol: siteAddress.protocol.slice(0, -1),
           hostname: siteAddress.hostname,
       },

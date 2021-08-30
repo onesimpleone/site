@@ -10,10 +10,11 @@
   "scripts": {
     "develop": "gatsby develop",
     "start": "gatsby develop",
-    "build": "gatsby build",
     "serve": "gatsby serve",
-    "deploy": "yarn build && gatsby-plugin-s3 deploy --yes && aws cloudfront create-invalidation --distribution-id E1P5HA60BXMUFE --paths \"/*\"",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "_build": "gatsby build",
+    "_deploy": "gatsby-plugin-s3 deploy --yes && aws cloudfront create-invalidation --distribution-id EWUMNF6J4O8VU --paths \"/*\"",
+    "deploy": "yarn _build && yarn _deploy"
   },
   "dependencies": {
     "gatsby": "^3.12.1",
