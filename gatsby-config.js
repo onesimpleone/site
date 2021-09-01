@@ -1,8 +1,9 @@
-/**
- * TODO: заменить на onesimpleone.com
- */
-const siteAddress = new URL("https://d2wyxqay8p9ua6.cloudfront.net");
+// Connecting the variables from the .env file.
+require("dotenv").config({
+  path: `.env`,
+})
 
+const siteAddress = new URL(process.env.SITE_ADDRESS)
 module.exports = {
   siteMetadata: {
     siteUrl: "https://www.yourdomain.tld",
@@ -29,9 +30,9 @@ module.exports = {
       __key: "images",
     },
     /**
-     * Плагин, чтобы прямая ссылка на корзину 
-     * не влияла на seo, если вдруг эта 
-     * ссылка попадёт в выдачу.
+     * Добавляет тег canonical в head.
+     * Это позволит исключить любые тестовые 
+     * разворачивания сайта из индексации в поисковиках.
      */
     {
       resolve: `gatsby-plugin-canonical-urls`,

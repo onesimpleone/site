@@ -13,7 +13,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "build": "gatsby build",
-    "deploy": "yarn build && aws s3 sync public/ s3://onesimple-site/ --delete && aws cloudfront create-invalidation --distribution-id EWUMNF6J4O8VU --paths \"/*\""
+    "deploy": "yarn build && aws s3 sync public/ s3://onesimple-site/ --delete && aws cloudfront create-invalidation --distribution-id EWUMNF6J4O8VU --paths '/*'"
   },
   "dependencies": {
     "gatsby": "^3.12.1",
