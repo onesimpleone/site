@@ -29,19 +29,6 @@ module.exports = {
       __key: "images",
     },
     /**
-     * Плагин для публикации сайта
-     * в aws s3.
-     */
-    {
-      resolve: `gatsby-plugin-s3`,
-      options: {
-          bucketName: 'onesimpleone.com',
-          region: 'eu-central-1',
-          protocol: siteAddress.protocol.slice(0, -1),
-          hostname: siteAddress.hostname,
-      },
-    },
-    /**
      * Плагин, чтобы прямая ссылка на корзину 
      * не влияла на seo, если вдруг эта 
      * ссылка попадёт в выдачу.
