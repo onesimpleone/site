@@ -134,6 +134,8 @@ const IndexPage = () => {
     <main style={pageStyles}>
       <Header />
       <Link to="/about/">Go to page 2</Link>
+      <br/>
+      <a href="/app">Go to App!</a>
       <title>Home Page</title>
       <h1 style={headingStyles}>
         Congratulations
