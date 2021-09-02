@@ -4,7 +4,7 @@ import "./header.sass"
 const Header = () => {
     return (
         <div id="header">
-            <p>Header with styles</p>
+            <p>OneSimple. Project in development.</p>
         </div>
     )
 }
