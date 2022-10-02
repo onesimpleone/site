@@ -1,3 +1,6 @@
+# Site
+[Documentation](https://app.gitbook.com/o/7Z1Xf0GkYpm4JHwLLWeD/s/axsGlbVQXL1VEKPyRTCT/)
+
 ## Инструкция
 1. Установка awscli: https://docs.aws.amazon.com/cli/latest/userguide/install-linux.html
 2. Потом конфигурируем пользователя aws: aws configure.
