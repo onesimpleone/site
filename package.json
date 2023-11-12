@@ -1,0 +1,56 @@
+{
+  "name": "onesimple-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "OneSimple site.",
+  "scripts": {
+    "gatsby:build": "gatsby build",
+    "gatsby:clean": "gatsby clean",
+    "gatsby:start": "concurrently 'yarn typescript:generate-scss' 'gatsby develop -p 4000' ",
+    "lint:eslint-check": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:eslint-fix": "yarn lint:eslint-check --fix",
+    "lint:prettier-check": "prettier --check .",
+    "lint:prettier-fix": "prettier --write .",
+    "lint:stylelint-check": "stylelint '**/*{.css,.scss}'",
+    "lint:stylelint-fix": "stylelint '**/*{.css,.scss}' --fix",
+    "prepare": "husky install",
+    "typescript:check": "tsc --noEmit",
+    "typescript:generate-scss": "yarn typed-scss-modules 'src/**/*.scss' --watch",
+    "util:deploy": "yarn build && gatsby-plugin-s3 deploy --yes && aws cloudfront create-invalidation --distribution-id EWUMNF6J4O8VU --paths '/*'"
+  },
+  "dependencies": {
+    "gatsby": "^5.12.4",
+    "gatsby-plugin-canonical-urls": "^5.12.0",
+    "gatsby-plugin-google-gtag": "^5.12.3",
+    "gatsby-plugin-image": "^3.12.3",
+    "gatsby-plugin-manifest": "^5.12.3",
+    "gatsby-plugin-sass": "^6.12.3",
+    "gatsby-plugin-sharp": "^5.12.3",
+    "gatsby-plugin-sitemap": "^6.12.3",
+    "gatsby-source-filesystem": "^5.12.1",
+    "gatsby-transformer-sharp": "^5.12.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.69.5"
+  },
+  "devDependencies": {
+    "@onesimpleone/configs": "^2.10.1",
+    "@types/node": "^20.3.3",
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
+    "concurrently": "^8.2.2",
+    "eslint": "^8.53.0",
+    "gatsby-plugin-react-css-modules": "^5.12.0",
+    "gatsby-plugin-root-import": "^2.0.9",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.1.0",
+    "prettier": "3.0.3",
+    "stylelint": "^14.6.0",
+    "typed-scss-modules": "^7.1.4",
+    "typescript": "^5.1.6"
+  },
+  "lint-staged": {
+    "*.{css,js,jsx,ts,tsx,json}": "prettier --write",
+    "*.{css,sass}": "stylelint --fix && stylelint --fix"
+  }
+}

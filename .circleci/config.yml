@@ -1,0 +1,15 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@5.0.2
+  frontend: onesimpleone/frontend@1.2.0
+
+workflows:
+  code_check:
+    jobs:
+      - frontend/linters:
+          context: general_env
+          name: linters
+      - frontend/typescript:
+          context: general_env
+          name: typescript
