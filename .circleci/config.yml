@@ -4,17 +4,6 @@ orbs:
   node: circleci/node@5.0.2
   frontend: onesimpleone/frontend@1.2.0
 
-# commands:
-#   #
-
-# jobs:
-#   deployment:
-#     executor: frontend/default
-#     steps:
-#       - checkout
-#       - frontend/install-packages
-#       - run:
-
 workflows:
   code_check:
     jobs:
