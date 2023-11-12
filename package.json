@@ -4,9 +4,9 @@
   "private": true,
   "description": "OneSimple site.",
   "scripts": {
+    "gatsbly:deploy": "gatsby-plugin-s3 deploy --yes",
     "gatsby:build": "rm -rf public && yarn gatsby:build ",
     "gatsby:clean": "gatsby clean",
-    "gatsbly:deploy": "gatsby-plugin-s3 deploy --yes",
     "gatsby:start": "concurrently 'yarn typescript:generate-scss' 'gatsby develop -p 4000' ",
     "lint:eslint-check": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:eslint-fix": "yarn lint:eslint-check --fix",
