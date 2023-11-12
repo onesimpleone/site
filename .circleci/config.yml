@@ -101,7 +101,10 @@ workflows:
           context: general_env
           name: typescript
       - terraform_plan_and_apply
-      - build_and_deploy
+      - build_and_deploy:
+          requires:
+            - linters
+            - typescript
       - clear_cloudfront_cache:
           requires:
             - terraform_plan_and_apply
