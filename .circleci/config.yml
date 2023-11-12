@@ -4,8 +4,94 @@ orbs:
   node: circleci/node@5.0.2
   frontend: onesimpleone/frontend@1.2.0
 
+anchor_default_environment: &default_environment
+  AWS_DEFAULT_REGION: us-east-1
+  AWS_ACCOUNT_ID: "432009835346"
+anchor_terraform_executor: &terraform_executor
+  docker:
+    - image: docker.mirror.hashicorp.services/hashicorp/terraform:1.5
+  environment:
+    <<: *default_environment
+
+jobs:
+  terraform_plan_and_apply:
+    <<: *terraform_executor
+    steps:
+      - checkout
+      - run:
+          name: Set general variables
+          command: |
+            echo "export TF_VAR_stage=$STAGE" >> $BASH_ENV
+      - aws-cli/setup:
+          role_arn: arn:aws:iam::${AWS_ACCOUNT_ID}:role/OIDC_ADMIN_ROLE
+      - run:
+          name: Enable Terraform Cloud
+          command: |
+            cd .infrastructure/cloud/
+            cp .backend backend.tf
+      - run:
+          name: Init
+          command: |
+            source $BASH_ENV
+            cd .infrastructure/cloud/
+            terraform init -input=false
+      - run:
+          name: Plan
+          command: |
+            source $BASH_ENV
+            cd .infrastructure/cloud/
+            terraform plan -out tf_plan
+      - run:
+          name: Apply
+          command: |
+            source $BASH_ENV
+            cd .infrastructure/cloud/
+            terraform apply tf_plan
+            echo "export CLOUDFRONT_DISTRIBUTION_ID=$(terraform -chdir=.infrastructure/cloud/ output cdn__distribution_id)" >> $BASH_ENV
+      - run:
+          name: Save environments
+          command: cp $BASH_ENV bash.env
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+            - bash.env
+  build_and_deploy:
+    executor: frontend/default
+    steps:
+      - attach_workspace:
+          at: .
+      - frontend/install-packages
+      - run:
+          name: Build
+          command: yarn util:build
+      - run:
+          name: Deploy
+          command: yarn util:deploy
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+            - bash.env
+  clear_cloudfront_cache:
+    executor:
+      name: aws-ecr/default
+    environment:
+      <<: *default_environment
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Init environments
+          command: cat bash.env > $BASH_ENV
+      - aws-cli/setup:
+          role_arn: arn:aws:iam::${AWS_ACCOUNT_ID}:role/OIDC_ECR_ROLE
+      - run:
+          name: Invalidate CloudFront distribution
+          command: aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths '/*'
+
 workflows:
-  code_check:
+  developement:
     jobs:
       - frontend/linters:
           context: general_env
@@ -13,3 +99,10 @@ workflows:
       - frontend/typescript:
           context: general_env
           name: typescript
+      - terraform_plan_and_apply
+      - build_and_deploy
+      - clear_cloudfront_cache:
+          requires:
+            - terraform_plan_and_apply
+            - build_and_deploy
+

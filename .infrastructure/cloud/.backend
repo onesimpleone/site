@@ -1,0 +1,7 @@
+# Terraform Cloud for CI/CD.
+# Rename this file to "backend.tf" in the CI/CD pipeline.
+# Command: "cp .backend backend.tf".
+
+terraform {
+  cloud {}
+}

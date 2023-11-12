@@ -16,3 +16,11 @@ yarn-error.log
 
 # Editors
 .idea
+
+# Terraform
+.infrastructure/cloud/.env
+.infrastructure/cloud/.terraform/
+.infrastructure/cloud/terraform.tfstate
+.infrastructure/cloud/.terraform.tfstate.lock.info
+.infrastructure/cloud/terraform.tfstate.backup
+.infrastructure/cloud/tf_plan
