@@ -1,4 +1,18 @@
-node_modules/
+# OSX
+.DS_Store
+
+# Gatsby
 .cache/
 public
-**/.DS_Store
+src/gatsby-types.d.ts
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Cache
+.eslintcache
+
+# Editors
+.idea
