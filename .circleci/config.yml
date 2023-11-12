@@ -1,6 +1,7 @@
 version: 2.1
 
 orbs:
+  aws-cli: circleci/aws-cli@4.0.0
   node: circleci/node@5.0.2
   frontend: onesimpleone/frontend@1.2.0
 
@@ -75,7 +76,7 @@ jobs:
             - bash.env
   clear_cloudfront_cache:
     executor:
-      name: aws-ecr/default
+      name: aws-cli/default
     environment:
       <<: *default_environment
     steps:
