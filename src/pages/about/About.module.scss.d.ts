@@ -1,1 +1,1 @@
-export declare const header: string
+export declare const header: string;
