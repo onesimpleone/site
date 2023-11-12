@@ -1,4 +1,4 @@
 output "cdn__distribution_id" {
   description = "CloudFront Distribution ID."
-  value = module.cdn.this_cloudfront_distribution_id
+  value = module.cdn.cloudfront_distribution_id
 }
