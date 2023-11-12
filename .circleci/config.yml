@@ -105,8 +105,8 @@ workflows:
           requires:
             - linters
             - typescript
+            - terraform_plan_and_apply
       - clear_cloudfront_cache:
           requires:
-            - terraform_plan_and_apply
             - build_and_deploy
 
