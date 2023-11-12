@@ -7,7 +7,7 @@ orbs:
 
 anchor_default_environment: &default_environment
   AWS_DEFAULT_REGION: us-east-1
-  AWS_ACCOUNT_ID: "432009835346"
+  AWS_ACCOUNT_ID: '432009835346'
 anchor_terraform_executor: &terraform_executor
   docker:
     - image: docker.mirror.hashicorp.services/hashicorp/terraform:1.5
@@ -109,4 +109,3 @@ workflows:
       - clear_cloudfront_cache:
           requires:
             - build_and_deploy
-
