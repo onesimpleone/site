@@ -15,7 +15,7 @@ module.exports = {
   overrides: [
     ...config.overrides,
     {
-      files: ['src/pages/**/index.tsx', 'src/pages/index.tsx'],
+      files: ['src/pages/*.tsx'],
       rules: {
         'import/no-default-export': 'off',
       },
