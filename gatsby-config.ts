@@ -41,6 +41,16 @@ const config: GatsbyConfig = {
         siteUrl: new URL(siteAddress).href.slice(0, -1),
       },
     },
+    {
+      resolve: `gatsby-plugin-s3`,
+      options: {
+        bucketName: process.env.BUCKET_NAME || 'default',
+        region: process.env.BUCKET_REGION || 'us-east-1',
+        protocol: new URL(siteAddress).protocol.slice(0, -1),
+        hostname: new URL(siteAddress).hostname,
+        acl: null,
+      },
+    },
   ],
 }
 

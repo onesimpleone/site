@@ -1,15 +1,152 @@
 version: 2.1
 
+# GitHub Actions
+parameters:
+  GHA_Event:
+    type: string
+    default: ''
+  GHA_Actor:
+    type: string
+    default: ''
+  GHA_Action:
+    type: string
+    default: ''
+  GHA_Meta:
+    type: string
+    default: ''
+
 orbs:
+  aws-cli: circleci/aws-cli@4.0.0
   node: circleci/node@5.0.2
   frontend: onesimpleone/frontend@1.2.0
 
+anchor_default_environment: &default_environment
+  AWS_DEFAULT_REGION: us-east-1
+  AWS_ACCOUNT_ID: '432009835346'
+anchor_terraform_executor: &terraform_executor
+  docker:
+    - image: docker.mirror.hashicorp.services/hashicorp/terraform:1.5
+  environment:
+    <<: *default_environment
+
+jobs:
+  terraform_plan_and_apply:
+    <<: *terraform_executor
+    steps:
+      - checkout
+      - run:
+          name: Set general variables
+          command: |
+            echo "export TF_VAR_stage=$STAGE" >> $BASH_ENV
+            echo "export TF_WORKSPACE=onesimple-site-$STAGE" >> $BASH_ENV
+      - aws-cli/setup:
+          role_arn: arn:aws:iam::${AWS_ACCOUNT_ID}:role/OIDC_ADMIN_ROLE
+      - run:
+          name: Enable Terraform Cloud
+          command: |
+            cd .infrastructure/cloud/
+            cp .backend backend.tf
+      - run:
+          name: Init
+          command: |
+            source $BASH_ENV
+            cd .infrastructure/cloud/
+            terraform init -input=false
+      - run:
+          name: Plan
+          command: |
+            source $BASH_ENV
+            cd .infrastructure/cloud/
+            terraform plan -out tf_plan
+      - run:
+          name: Apply
+          command: |
+            source $BASH_ENV
+            cd .infrastructure/cloud/
+            terraform apply tf_plan
+            echo "export CLOUDFRONT_DISTRIBUTION_ID=$(terraform output cdn__distribution_id)" >> $BASH_ENV
+            echo "export CLOUDFRONT_URL=$(terraform output cdn__url)" >> $BASH_ENV
+            echo "export BUCKET_NAME=$(terraform output s3_bucket__bucket_name)" >> $BASH_ENV
+            echo "export BUCKET_REGION=$(terraform output s3_bucket__bucket_region)" >> $BASH_ENV
+      - run:
+          name: Save environments
+          command: cp $BASH_ENV bash.env
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+            - bash.env
+  build_and_deploy:
+    executor: frontend/default
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Init environments
+          command: cat bash.env > $BASH_ENV
+      - frontend/install-packages
+      - run:
+          name: Build
+          command: yarn gatsby:build
+      - run:
+          name: Deploy
+          command: yarn gatsby:deploy
+      - run:
+          name: Your CloudFront Link
+          command: echo $CLOUDFRONT_URL
+  clear_cloudfront_cache:
+    executor:
+      name: aws-cli/default
+    environment:
+      <<: *default_environment
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Init environments
+          command: cat bash.env > $BASH_ENV
+      - aws-cli/setup:
+          role_arn: arn:aws:iam::${AWS_ACCOUNT_ID}:role/OIDC_ADMIN_ROLE
+      - run:
+          name: Invalidate CloudFront Distribution
+          command: |
+            INVALIDATION_ID=$(aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths '/*' --query 'Invalidation.Id' --output text)
+            aws cloudfront wait invalidation-completed --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --id $INVALIDATION_ID
+
 workflows:
-  code_check:
+  developement:
+    when:
+      not: << pipeline.parameters.GHA_Action >>
     jobs:
       - frontend/linters:
-          context: general_env
           name: linters
-      - frontend/typescript:
           context: general_env
+      - frontend/typescript:
           name: typescript
+          context: general_env
+      - terraform_plan_and_apply:
+          context:
+            - is_staging
+            - terraform_cloud
+      - build_and_deploy:
+          requires:
+            - linters
+            - typescript
+            - terraform_plan_and_apply
+      - clear_cloudfront_cache:
+          requires:
+            - build_and_deploy
+  publish:
+    when:
+      equal: ['push', << pipeline.parameters.GHA_Event >>]
+    jobs:
+      - terraform_plan_and_apply:
+          context:
+            - is_production
+            - terraform_cloud
+      - build_and_deploy:
+          requires:
+            - terraform_plan_and_apply
+      - clear_cloudfront_cache:
+          requires:
+            - build_and_deploy
