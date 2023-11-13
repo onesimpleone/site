@@ -16,7 +16,7 @@ export const Header = () => (
       <PrimaryButton
         // className={styles.button}
         isExternal={true}
-        path="https://docs.google.com/forms/d/e/1FAIpQLSc62D436PyYVExKy40TBSAR4M0Dm131R-rSj8tGhF3VtThx8A/viewform?pli=1"
+        path="https://forms.gle/axdDXjw7k4HpR1Z39"
         title="Signup"
       />
       {/* <PrimaryButton title="Login" /> */}
