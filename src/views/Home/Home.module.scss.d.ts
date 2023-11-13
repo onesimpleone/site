@@ -1,0 +1,12 @@
+export declare const bigBubble: string
+export declare const button: string
+export declare const content: string
+export declare const downloadButtons: string
+export declare const main: string
+export declare const mainScreen: string
+export declare const metaBadge: string
+export declare const officialMeta: string
+export declare const phone: string
+export declare const presentation: string
+export declare const secondScreen: string
+export declare const smallBubble: string

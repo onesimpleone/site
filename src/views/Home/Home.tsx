@@ -1,13 +1,61 @@
 import * as React from 'react'
 
 import { HeadFC, Link } from 'gatsby'
+import { StaticImage } from 'gatsby-plugin-image'
+
+import * as styles from './Home.module.scss'
+import { Bubble, DownloadBadge, MetaBadge } from 'components'
+import { Footer, Header } from 'components/navigation'
+import * as presets from 'styles/presets.module.scss'
 
 export const Home = () => (
-  <main>
-    <h1>{'Home'}</h1>
-    <p>{'Under development'}</p>
-    <Link to="/about">{'About'}</Link>
-  </main>
+  <>
+    <Bubble className={styles.smallBubble} size="small" />
+    <Bubble className={styles.bigBubble} size="big" />
+    <main className={styles.main}>
+      <Header />
+      <div className={styles.mainScreen}>
+        <div className={styles.content}>
+          <h1 className={presets.h1}>
+            Business messaging app for{' '}
+            <span className={presets.h1}>Instagram</span>
+          </h1>
+          <p>Simplify sales and customer service. Free access.</p>
+
+          <div className={styles.downloadButtons}>
+            <a href="" target="_blank">
+              <DownloadBadge className={styles.button} type="appStore" />
+            </a>
+            <a href="" target="_blank">
+              <DownloadBadge className={styles.button} type="googlePlay" />
+            </a>
+            <Link to="/app">
+              <DownloadBadge className={styles.button} type="web" />
+            </Link>
+            <div />
+            <div />
+            <div />
+          </div>
+        </div>
+
+        <div className={styles.presentation}>
+          <StaticImage
+            alt="OneSimple mobile app interface"
+            className={styles.phone}
+            src="./interface.png"
+          />
+        </div>
+      </div>
+
+      <div className={styles.secondScreen}>
+        <div className={styles.officialMeta}>
+          <p className={presets.h2}>Official Meta API</p>
+          <MetaBadge className={styles.metaBadge} />
+        </div>
+      </div>
+    </main>
+    <Footer />
+  </>
 )
 
-export const HomeHead: HeadFC = () => <title>{'OneSimple'}</title>
+export const HomeHead: HeadFC = () => <title>OneSimple</title>

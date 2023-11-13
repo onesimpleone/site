@@ -1,0 +1,112 @@
+@import '../../styles/variables.module.scss';
+
+body {
+  background-color: $grayscale0;
+  position: relative;
+}
+
+.bigBubble {
+  right: 90px;
+  top: 425px;
+}
+
+.smallBubble {
+  left: 10px;
+  top: 665px;
+}
+
+.main {
+  display: flex;
+  width: 1272px;
+  flex-direction: column;
+  margin: 0 auto;
+  align-items: center;
+  padding-left: 2.25rem;
+  padding-right: 2.25rem;
+  position: relative;
+}
+
+.mainScreen {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+  .content {
+    display: flex;
+    width: 588px;
+    flex-direction: column;
+    padding-left: 59px;
+    margin-top: 300px;
+    margin-right: 126px;
+
+    h1 {
+      width: 480px;
+      margin-bottom: 16px;
+      color: $grayscale45;
+
+      span {
+        background: $instagram;
+        color: transparent;
+        background-clip: text;
+        box-decoration-break: clone;
+      }
+    }
+
+    p {
+      margin-bottom: 52px;
+      color: $grayscale35;
+    }
+
+    .downloadButtons {
+      display: flex;
+      align-items: center;
+
+      .button {
+        display: inline-flex;
+        height: 40px;
+        width: 120px;
+        border-radius: 6px;
+        margin-right: 18px;
+      }
+    }
+  }
+
+  .presentation {
+    display: flex;
+    width: 486px;
+    height: 688px;
+    align-items: center;
+    margin-top: 83px;
+  }
+}
+.phone {
+  width: 397px;
+  height: 688px;
+}
+
+.secondScreen {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 120px;
+
+  .officialMeta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 24px;
+    margin-bottom: 38px;
+
+    p {
+      color: $tertiary50;
+    }
+
+    .metaBadge {
+      width: 167px;
+      height: 72px;
+      margin-top: -8px;
+      z-index: -1;
+    }
+  }
+}
