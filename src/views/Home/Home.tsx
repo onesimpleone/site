@@ -5,7 +5,7 @@ import { StaticImage } from 'gatsby-plugin-image'
 
 import * as styles from './Home.module.scss'
 import { Bubble, MetaBadge, PlatformBadge } from 'components'
-import { Footer, Header } from 'components/navigation'
+import { Footer, Header } from 'components/layout'
 import * as presets from 'styles/presets.module.scss'
 
 export const Home = () => (
