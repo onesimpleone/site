@@ -4,7 +4,7 @@
   "private": true,
   "description": "OneSimple site.",
   "scripts": {
-    "gatsbly:deploy": "gatsby-plugin-s3 deploy --yes",
+    "gatsby:deploy": "gatsby-plugin-s3 deploy --yes",
     "gatsby:build": "rm -rf public && gatsby build",
     "gatsby:clean": "gatsby clean",
     "gatsby:start": "concurrently 'yarn typescript:generate-scss' 'gatsby develop -p 4000' ",
