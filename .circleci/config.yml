@@ -98,8 +98,10 @@ jobs:
       - aws-cli/setup:
           role_arn: arn:aws:iam::${AWS_ACCOUNT_ID}:role/OIDC_ECR_ROLE
       - run:
-          name: Invalidate CloudFront distribution
-          command: aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths '/*'
+          name: Invalidate CloudFront Distribution
+          command: |
+            INVALIDATION_ID=$(aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths '/*' --query 'Invalidation.Id' --output text)
+            aws cloudfront wait invalidation-completed --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --id $INVALIDATION_ID
 
 workflows:
   developement:
