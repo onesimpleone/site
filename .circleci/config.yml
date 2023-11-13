@@ -1,5 +1,6 @@
 version: 2.1
-# Test
+
+# GitHub Actions
 parameters:
   GHA_Event:
     type: string
@@ -114,6 +115,7 @@ jobs:
 
 workflows:
   developement:
+    when: << pipeline.parameters.GHA_Action >>
     jobs:
       - frontend/linters:
           name: linters
@@ -124,7 +126,6 @@ workflows:
       - terraform_plan_and_apply:
           context:
             - is_staging
-            # - is_production
             - terraform_cloud
       - build_and_deploy:
           requires:
@@ -134,7 +135,7 @@ workflows:
       - clear_cloudfront_cache:
           requires:
             - build_and_deploy
-  release:
+  publish:
     when:
       equal: ['push', << pipeline.parameters.GHA_Event >>]
     jobs:
