@@ -6,3 +6,7 @@ public
 
 # Configs
 tsconfig.json
+
+# Stylelint
+*.scss
+*.css

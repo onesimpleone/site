@@ -10,6 +10,7 @@ module.exports = {
     ...config.ignorePatterns,
     'public',
     'gatsby-config.ts',
+    'gatsby-browser.js',
     'src/gatsby-types.d.ts',
   ],
   overrides: [
@@ -18,6 +19,12 @@ module.exports = {
       files: ['src/pages/*.tsx'],
       rules: {
         'import/no-default-export': 'off',
+      },
+    },
+    {
+      files: ['*.tsx'],
+      rules: {
+        'react/jsx-no-literals': 'off',
       },
     },
   ],

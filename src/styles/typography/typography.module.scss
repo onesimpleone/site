@@ -1,0 +1,46 @@
+@import './sizes.module';
+
+// Font Family
+$sourceSans3: sourcesans3;
+
+@mixin font(
+  $font-family,
+  $font-size,
+  $font-style,
+  $font-weight,
+  $line-height
+) {
+  font-weight: $font-weight;
+  font-size: $font-size;
+  font-family: $font-family;
+  font-style: $font-style;
+  line-height: $line-height;
+}
+
+.h1 {
+  @include font($sourceSans3, $h1, normal, 670, 124%);
+}
+
+.h2 {
+  @include font($sourceSans3, $h2, normal, 540, 1.5rem);
+}
+
+.primaryButton {
+  @include font($sourceSans3, $primary-button, normal, 540, 1.5rem);
+
+  text-transform: capitalize;
+}
+
+.secondaryButton {
+  @include font($sourceSans3, $secondary-button, normal, 480, 1.5rem);
+
+  text-transform: capitalize;
+}
+
+.paragraph {
+  @include font($sourceSans3, $paragraph, normal, 400, 128%);
+}
+
+.caption {
+  @include font($sourceSans3, $caption, normal, 480, 0.875rem);
+}

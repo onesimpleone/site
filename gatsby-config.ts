@@ -19,12 +19,6 @@ const config: GatsbyConfig = {
     // "gatsby-plugin-google-gtag",
     'gatsby-plugin-image',
     'gatsby-plugin-sitemap',
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        icon: 'src/images/icon.png',
-      },
-    },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
@@ -49,6 +43,18 @@ const config: GatsbyConfig = {
         protocol: new URL(siteAddress).protocol.slice(0, -1),
         hostname: new URL(siteAddress).hostname,
         acl: null,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: 'OneSimple',
+        short_name: 'OneSimple',
+        start_url: '/',
+        background_color: '#0D0D0D',
+        theme_color: '#0D0D0D',
+        display: 'standalone',
+        icon: 'src/images/icon.png',
       },
     },
   ],

@@ -1,0 +1,35 @@
+@import '../../../styles/variables.module';
+
+.container {
+  display: flex;
+  align-items: center;
+
+  .logoIcon {
+    width: 46px;
+    height: 46px;
+    margin-right: 13px;
+  }
+
+  .nameAndDescriptor {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 2px;
+
+    .name {
+      width: 108px;
+      height: 21px;
+      margin-bottom: 2px;
+    }
+
+    p {
+      margin-left: 1px;
+      color: $grayscale25;
+
+      span {
+        display: inline-block;
+        color: $meta;
+      }
+    }
+  }
+}

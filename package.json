@@ -7,7 +7,7 @@
     "gatsby:build": "rm -rf public && gatsby build",
     "gatsby:clean": "gatsby clean",
     "gatsby:deploy": "gatsby-plugin-s3 deploy --yes",
-    "gatsby:start": "concurrently 'yarn typescript:generate-scss' 'gatsby develop -p 4000' ",
+    "gatsby:start": "concurrently 'yarn typescript:generate-scss' 'gatsby develop -H 0.0.0.0 -p 4000' ",
     "lint:eslint-check": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:eslint-fix": "yarn lint:eslint-check --fix",
     "lint:prettier-check": "prettier --check .",
