@@ -36,6 +36,16 @@ const config: GatsbyConfig = {
       },
     },
     {
+      resolve: `gatsby-plugin-s3`,
+      options: {
+        bucketName: process.env.BUCKET_NAME || 'default',
+        region: process.env.BUCKET_REGION || 'us-east-1',
+        protocol: new URL(siteAddress).protocol.slice(0, -1),
+        hostname: new URL(siteAddress).hostname,
+        acl: null,
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: 'OneSimple',

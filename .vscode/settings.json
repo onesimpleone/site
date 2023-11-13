@@ -2,7 +2,13 @@
   "editor.tabSize": 2,
   "files.exclude": {
     "src/gatsby-types.d.ts": true,
-    "**/*.scss.d.ts": true
+    "**/*.scss.d.ts": true,
+
+    // Terraform
+    ".infrastructure/cloud/terraform.tfstate": true,
+    ".infrastructure/cloud/terraform.tfstate.backup": true,
+    ".infrastructure/cloud/.terraform.lock.hcl": true,
+    ".infrastructure/cloud/.terraform.tfstate.lock.info": true
   },
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
