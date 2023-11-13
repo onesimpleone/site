@@ -116,7 +116,9 @@ jobs:
 workflows:
   developement:
     when:
-      not: << pipeline.parameters.GHA_Action >>
+      and:
+        - not:
+            equal: [main, << pipeline.git.branch >>]
     jobs:
       - frontend/linters:
           name: linters
@@ -138,7 +140,8 @@ workflows:
             - build_and_deploy
   publish:
     when:
-      equal: ['push', << pipeline.parameters.GHA_Event >>]
+      and:
+        - equal: [main, << pipeline.git.branch >>]
     jobs:
       - terraform_plan_and_apply:
           context:
