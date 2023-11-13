@@ -1,10 +1,10 @@
 import * as React from 'react'
 
-import { HeadFC, Link } from 'gatsby'
+import { HeadFC } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 
 import * as styles from './Home.module.scss'
-import { Bubble, DownloadBadge, MetaBadge } from 'components'
+import { Bubble, MetaBadge, PlatformBadge } from 'components'
 import { Footer, Header } from 'components/navigation'
 import * as presets from 'styles/presets.module.scss'
 
@@ -24,13 +24,13 @@ export const Home = () => (
 
           <div className={styles.downloadButtons}>
             {/* <a href="/" target="_blank"> */}
-            <DownloadBadge className={styles.button} type="appStore" />
+            <PlatformBadge className={styles.button} type="appStore" />
             {/* </a> */}
             {/* <a href="/" target="_blank"> */}
-            <DownloadBadge className={styles.button} type="googlePlay" />
+            <PlatformBadge className={styles.button} type="googlePlay" />
             {/* </a> */}
             {/* <Link to="/"> */}
-            <DownloadBadge className={styles.button} type="web" />
+            <PlatformBadge className={styles.button} type="web" />
             {/* </Link> */}
             <div />
             <div />

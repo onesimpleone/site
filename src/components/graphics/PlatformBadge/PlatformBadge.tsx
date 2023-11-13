@@ -10,22 +10,22 @@ interface IProps {
   className?: string
 }
 
-export const DownloadBadge = ({ className, type }: IProps) => {
-  let BadgeType = WebBadge
+export const PlatformBadge = ({ className, type }: IProps) => {
+  let Badge = WebBadge
   switch (type) {
     case 'appStore':
-      BadgeType = AppStoreBadge
+      Badge = AppStoreBadge
       break
     case 'googlePlay':
-      BadgeType = GooglePlayBadge
+      Badge = GooglePlayBadge
       break
     default:
-      BadgeType = WebBadge
+      Badge = WebBadge
   }
 
   return (
     <div className={className}>
-      <BadgeType />
+      <Badge />
     </div>
   )
 }
