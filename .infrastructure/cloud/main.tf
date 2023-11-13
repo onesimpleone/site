@@ -9,6 +9,7 @@ resource "random_string" "bucket" {
 }
 
 locals {
+  is_production     = var.stage == "production"
   region            = "us-east-1"
   project_name      = join("-", [var.stage, "onesimple-frontend-site"])
   root_domain       = "onesimpleone.com"
@@ -130,7 +131,7 @@ resource "aws_cloudfront_cache_policy" "cache_policy" {
 module "cdn" {
   source = "terraform-aws-modules/cloudfront/aws"
 
-  aliases             = [local.domain_name_alias]
+  aliases             =  local.is_production ? [local.domain_name]: []
   comment             = "[$${var.stage}] OneSimple – Site and App"
   enabled             = true
   is_ipv6_enabled     = true
@@ -199,7 +200,7 @@ module "route53_records" {
   source  = "terraform-aws-modules/route53/aws//modules/records"
   version = "~> 2.0"
 
-  count = var.stage == "production" ? 1 : 0
+  count = local.is_production ? 1 : 0
 
   zone_id = data.aws_route53_zone.this.zone_id
 
