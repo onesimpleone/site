@@ -139,7 +139,7 @@ module "cdn" {
   source = "terraform-aws-modules/cloudfront/aws"
 
   aliases             = [local.domain_name_alias]
-  comment             = "[$${var.local}] OneSimple – Site and App"
+  comment             = "[$${var.stage}] OneSimple – Site and App"
   enabled             = true
   is_ipv6_enabled     = true
   price_class         = "PriceClass_All"
