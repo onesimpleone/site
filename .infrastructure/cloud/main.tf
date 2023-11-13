@@ -112,8 +112,8 @@ resource "aws_cloudfront_cache_policy" "no_cache_policy" {
 }
 
 resource "aws_cloudfront_cache_policy" "cache_policy" {
-  name    = join("-", [local.project_name, "no-cache-policy"])
-  comment = "Policy to cache files"
+  name    = join("-", [local.project_name, "cache-policy"])
+  comment = "Policy to cache static files"
 
   parameters_in_cache_key_and_forwarded_to_origin {
     headers_config {
