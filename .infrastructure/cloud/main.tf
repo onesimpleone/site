@@ -198,7 +198,7 @@ module "route53_records" {
   source  = "terraform-aws-modules/route53/aws//modules/records"
   version = "~> 2.0"
 
-  count = var.stage == "dev" ? 1 : 0
+  count = var.stage == "production" ? 1 : 0
 
   zone_id = data.aws_route53_zone.this.zone_id
 
