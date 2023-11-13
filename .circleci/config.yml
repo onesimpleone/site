@@ -104,7 +104,7 @@ workflows:
           context: general_env
           name: typescript
       - terraform_plan_and_apply:
-          context: 
+          context:
             - is_staging
             - terraform_cloud
       - build_and_deploy:
