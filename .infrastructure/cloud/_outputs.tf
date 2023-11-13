@@ -5,7 +5,7 @@ output "cdn__distribution_id" {
 
 output "cdn__url" {
   description = "CloudFront URL."
-  value = module.cdn.cloudfront_distribution_domain_name
+  value = "https://" + module.cdn.cloudfront_distribution_domain_name
 }
 
 
