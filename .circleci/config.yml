@@ -79,11 +79,6 @@ jobs:
       - run:
           name: Your CloudFront Link
           command: echo $CLOUDFRONT_URL
-      - persist_to_workspace:
-          root: .
-          paths:
-            - .
-            - bash.env
   clear_cloudfront_cache:
     executor:
       name: aws-cli/default
