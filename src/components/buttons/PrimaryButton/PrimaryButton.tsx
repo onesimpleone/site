@@ -12,22 +12,33 @@ interface IProps {
   /** Container style */
   className?: string
 
+  /** Wrap in a tag when external */
+  isExternal?: boolean
+
   /** Path */
   path?: string
 }
 
-export const PrimaryButton = ({ className, path = '/', title }: IProps) => {
+export const PrimaryButton = ({
+  className,
+  isExternal,
+  path = '/',
+  title,
+}: IProps) => {
   const styleSet = {
     navLink: `${presets.primaryButton} ${styles.navLink}`,
-    navLinkActive: `${presets.primaryButton} ${styles.navLink}`,
   }
 
-  return (
-    <Link
-      activeClassName={styleSet.navLinkActive}
+  return isExternal ? (
+    <a
       className={`${styleSet.navLink} ${className}`}
-      to={path}
+      href={path}
+      target="_blank"
     >
+      {title}
+    </a>
+  ) : (
+    <Link className={`${styleSet.navLink} ${className}`} to={path}>
       {title}
     </Link>
   )
