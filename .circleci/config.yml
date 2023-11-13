@@ -96,7 +96,7 @@ jobs:
           name: Init environments
           command: cat bash.env > $BASH_ENV
       - aws-cli/setup:
-          role_arn: arn:aws:iam::${AWS_ACCOUNT_ID}:role/OIDC_ECR_ROLE
+          role_arn: arn:aws:iam::${AWS_ACCOUNT_ID}:role/OIDC_ADMIN_ROLE
       - run:
           name: Invalidate CloudFront Distribution
           command: |
