@@ -77,8 +77,8 @@ jobs:
           name: Deploy
           command: yarn gatsby:deploy
       - run:
-          name: Your Cloudfront Link
-          command: 'echo -e "\033[0;32mYour link: $CLOUDFRONT_URL\033[0m"'
+          name: Your CloudFront Link
+          command: echo $CLOUDFRONT_URL
       - persist_to_workspace:
           root: .
           paths:
