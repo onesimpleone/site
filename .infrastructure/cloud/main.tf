@@ -12,7 +12,7 @@ locals {
   region            = "us-east-1"
   project_name      = join("-", [var.stage, "onesimple-frontend-site"])
   root_domain       = "onesimpleone.com"
-  domain_name       = var.stage == "production" ? local.root_domain : "${var.stage}.${local.root_domain}"
+  domain_name       = root_domain
   domain_name_alias = join("", ["www.", local.domain_name])
 
   bucket_name        = local.project_name
