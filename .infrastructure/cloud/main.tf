@@ -89,7 +89,7 @@ module "acm" {
 }
 
 resource "aws_cloudfront_cache_policy" "no_cache_policy" {
-  name    = join("-", [project_name, "no-cache-policy"])
+  name    = join("-", [local.project_name, "no-cache-policy"])
   comment = "Policy to prevent caching."
 
   parameters_in_cache_key_and_forwarded_to_origin {
@@ -112,7 +112,7 @@ resource "aws_cloudfront_cache_policy" "no_cache_policy" {
 }
 
 resource "aws_cloudfront_cache_policy" "cache_policy" {
-  name    = join("-", [project_name, "no-cache-policy"])
+  name    = join("-", [local.project_name, "no-cache-policy"])
   comment = "Policy to cache files"
 
   parameters_in_cache_key_and_forwarded_to_origin {
