@@ -109,8 +109,8 @@ workflows:
           context: general_env
       - terraform_plan_and_apply:
           context:
-            # - is_staging
-            - is_production
+            - is_staging
+            # - is_production
             - terraform_cloud
       - build_and_deploy:
           requires:
