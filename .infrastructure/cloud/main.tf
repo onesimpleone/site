@@ -11,7 +11,8 @@ resource "random_string" "bucket" {
 locals {
   region            = "us-east-1"
   project_name      = join("-", [var.stage, "onesimple-frontend-site"])
-  domain_name       = "onesimpleone.com"
+  root_domain       = "onesimpleone.com"
+  domain_name       = var.stage == "production" ? local.root_domain : "${var.stage}.${local.root_domain}"
   domain_name_alias = join("", ["www.", local.domain_name])
 
   bucket_name        = local.project_name
@@ -63,16 +64,16 @@ module "s3_bucket" {
   tags = local.tags
 }
 
-data "aws_acm_certificate" "existing_acm_cert" {
-  domain = local.domain_name
-}
+# data "aws_acm_certificate" "existing_acm_cert" {
+#   domain = local.domain_name
+# }
 
 module "acm" {
   source  = "terraform-aws-modules/acm/aws"
   version = "~> 4.0"
 
   # If a certificate exists we don't create a new one.
-  count = data.aws_acm_certificate.existing_acm_cert.count > 0 ? 0 : 1
+  # count = length(data.aws_acm_certificate.existing_acm_cert) > 0 ? 0 : 1
 
   domain_name       = local.domain_name
   zone_id           = data.aws_route53_zone.this.id
@@ -198,7 +199,7 @@ module "cdn" {
 
 
 data "aws_route53_zone" "this" {
-  name = local.domain_name
+  name = local.root_domain
 }
 
 module "route53_records" {
