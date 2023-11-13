@@ -23,15 +23,15 @@ export const Home = () => (
           <p>Simplify sales and customer service. Free access.</p>
 
           <div className={styles.downloadButtons}>
-            <a href="" target="_blank">
-              <DownloadBadge className={styles.button} type="appStore" />
-            </a>
-            <a href="" target="_blank">
-              <DownloadBadge className={styles.button} type="googlePlay" />
-            </a>
-            <Link to="/app">
-              <DownloadBadge className={styles.button} type="web" />
-            </Link>
+            {/* <a href="/" target="_blank"> */}
+            <DownloadBadge className={styles.button} type="appStore" />
+            {/* </a> */}
+            {/* <a href="/" target="_blank"> */}
+            <DownloadBadge className={styles.button} type="googlePlay" />
+            {/* </a> */}
+            {/* <Link to="/"> */}
+            <DownloadBadge className={styles.button} type="web" />
+            {/* </Link> */}
             <div />
             <div />
             <div />
