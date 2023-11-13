@@ -1,5 +1,19 @@
 version: 2.1
 
+parameters:
+  GHA_Event:
+    type: string
+    default: ''
+  GHA_Actor:
+    type: string
+    default: ''
+  GHA_Action:
+    type: string
+    default: ''
+  GHA_Meta:
+    type: string
+    default: ''
+
 orbs:
   aws-cli: circleci/aws-cli@4.0.0
   node: circleci/node@5.0.2
@@ -117,18 +131,20 @@ workflows:
             - linters
             - typescript
             - terraform_plan_and_apply
-      # - clear_cloudfront_cache:
-      #     requires:
-      #       - build_and_deploy
-  # production:
-  #   jobs:
-  #     - terraform_plan_and_apply:
-  #         context:
-  #           - is_production
-  #           - terraform_cloud
-  #     - build_and_deploy:
-  #         requires:
-  #           - terraform_plan_and_apply
-  #     - clear_cloudfront_cache:
-  #         requires:
-  #           - build_and_deploy
+      - clear_cloudfront_cache:
+          requires:
+            - build_and_deploy
+  release:
+    when:
+      equal: ['push', << pipeline.parameters.GHA_Event >>]
+    jobs:
+      - terraform_plan_and_apply:
+          context:
+            - is_production
+            - terraform_cloud
+      - build_and_deploy:
+          requires:
+            - terraform_plan_and_apply
+      - clear_cloudfront_cache:
+          requires:
+            - build_and_deploy

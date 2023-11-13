@@ -1,0 +1,13 @@
+on:
+  push:
+    branches-ignore:
+      - '*'
+jobs:
+  trigger-circleci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publish to production
+        id: publish
+        uses: CircleCI-Public/trigger-circleci-pipeline-action@v1.1.0
+        env:
+          CCI_TOKEN: ${{ secrets.CIRCLECI_TOKEN }}
