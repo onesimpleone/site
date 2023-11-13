@@ -23,18 +23,15 @@ export const Home = () => (
           <p>Simplify sales and customer service. Free access.</p>
 
           <div className={styles.downloadButtons}>
-            {/* <a href="/" target="_blank"> */}
-            <PlatformBadge className={styles.button} type="appStore" />
-            {/* </a> */}
-            {/* <a href="/" target="_blank"> */}
-            <PlatformBadge className={styles.button} type="googlePlay" />
-            {/* </a> */}
-            {/* <Link to="/"> */}
-            <PlatformBadge className={styles.button} type="web" />
-            {/* </Link> */}
-            <div />
-            <div />
-            <div />
+            <a href="https://forms.gle/axdDXjw7k4HpR1Z39" target="_blank">
+              <PlatformBadge className={styles.button} type="appStore" />
+            </a>
+            <a href="https://forms.gle/axdDXjw7k4HpR1Z39" target="_blank">
+              <PlatformBadge className={styles.button} type="googlePlay" />
+            </a>
+            <a href="https://forms.gle/axdDXjw7k4HpR1Z39" target="_blank">
+              <PlatformBadge className={styles.button} type="web" />
+            </a>
           </div>
         </div>
 
