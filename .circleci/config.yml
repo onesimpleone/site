@@ -49,7 +49,8 @@ jobs:
             source $BASH_ENV
             cd .infrastructure/cloud/
             terraform apply tf_plan
-            echo "export CLOUDFRONT_DISTRIBUTION_ID=$(terraform  output cdn__distribution_id)" >> $BASH_ENV
+            echo "export CLOUDFRONT_DISTRIBUTION_ID=$(terraform output cdn__distribution_id)" >> $BASH_ENV
+            echo "export CLOUDFRONT_URL=$(terraform output cdn__url)" >> $BASH_ENV
             echo "export BUCKET_NAME=$(terraform output s3_bucket__bucket_name)" >> $BASH_ENV
             echo "export BUCKET_REGION=$(terraform output s3_bucket__bucket_region)" >> $BASH_ENV
       - run:
@@ -75,6 +76,9 @@ jobs:
       - run:
           name: Deploy
           command: yarn gatsby:deploy
+      - run:
+          name: Your Cloudfront Link
+          command: 'echo -e "\033[0;32mYour link: $CLOUDFRONT_URL\033[0m"'
       - persist_to_workspace:
           root: .
           paths:
