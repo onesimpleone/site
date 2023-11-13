@@ -12,8 +12,7 @@ locals {
   is_production     = var.stage == "production"
   region            = "us-east-1"
   project_name      = join("-", [var.stage, "onesimple-frontend-site"])
-  root_domain       = "onesimpleone.com"
-  domain_name       = local.root_domain
+  domain_name       = "onesimpleone.com"
   domain_name_alias = join("", ["www.", local.domain_name])
 
   bucket_name        = local.project_name
@@ -193,7 +192,7 @@ module "cdn" {
 
 
 data "aws_route53_zone" "this" {
-  name = local.root_domain
+  name = local.domain_name
 }
 
 module "route53_records" {
