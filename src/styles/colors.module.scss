@@ -1,0 +1,29 @@
+// OneSimple Colors
+// Grayscale
+$grayscale0: #ffffff;
+$grayscale25: #777676;
+$grayscale30: #4b4d52;
+$grayscale35: #2d2d2d;
+$grayscale45: #0d0d0d;
+$grayscale50: #000000;
+
+// Primary
+$primary35: #49a0f8;
+$primary45: #5989b7;
+
+// Tertiary
+$tertiary50: #828593;
+
+// Meta Colors
+$meta: #0160d8;
+$instagram: linear-gradient(45deg, #7638fa, #d300c5, #ff0069, #ff7a00);
+
+// Gradient Colors
+$bigBubble: linear-gradient(135deg, #fff4f7 20%, #ededff 80%);
+$smallBubble: linear-gradient(110deg, #f0e6e4 0%, #fff4f7 100%);
+$footer: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(227, 236, 245, 0.4) 100%
+  ),
+  rgba(227, 236, 245, 0.15);
