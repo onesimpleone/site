@@ -63,9 +63,16 @@ module "s3_bucket" {
   tags = local.tags
 }
 
+data "aws_acm_certificate" "existing_acm_cert" {
+  domain = local.domain_name
+}
+
 module "acm" {
   source  = "terraform-aws-modules/acm/aws"
   version = "~> 4.0"
+
+  # If a certificate exists we don't create a new one.
+  count = data.aws_acm_certificate.existing_acm_cert.count > 0 ? 0 : 1
 
   domain_name       = local.domain_name
   zone_id           = data.aws_route53_zone.this.id
