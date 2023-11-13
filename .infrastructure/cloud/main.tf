@@ -64,10 +64,6 @@ module "s3_bucket" {
   tags = local.tags
 }
 
-# data "aws_acm_certificate" "existing_acm_cert" {
-#   domain = local.domain_name
-# }
-
 module "acm" {
   source  = "terraform-aws-modules/acm/aws"
   version = "~> 4.0"
