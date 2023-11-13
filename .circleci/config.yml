@@ -49,9 +49,9 @@ jobs:
             source $BASH_ENV
             cd .infrastructure/cloud/
             terraform apply tf_plan
-            echo "export CLOUDFRONT_DISTRIBUTION_ID=$(terraform -chdir=.infrastructure/cloud/ output cdn__distribution_id)" >> $BASH_ENV
-            echo "export BUCKET_NAME=$(terraform -chdir=.infrastructure/cloud/ output s3_bucket__bucket_name)" >> $BASH_ENV
-            echo "export BUCKET_REGION=$(terraform -chdir=.infrastructure/cloud/ output s3_bucket__bucket_region)" >> $BASH_ENV
+            echo "export CLOUDFRONT_DISTRIBUTION_ID=$(terraform  output cdn__distribution_id)" >> $BASH_ENV
+            echo "export BUCKET_NAME=$(terraform output s3_bucket__bucket_name)" >> $BASH_ENV
+            echo "export BUCKET_REGION=$(terraform output s3_bucket__bucket_region)" >> $BASH_ENV
       - run:
           name: Save environments
           command: cp $BASH_ENV bash.env
