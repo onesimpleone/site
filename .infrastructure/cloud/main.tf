@@ -72,9 +72,6 @@ module "acm" {
   source  = "terraform-aws-modules/acm/aws"
   version = "~> 4.0"
 
-  # If a certificate exists we don't create a new one.
-  # count = length(data.aws_acm_certificate.existing_acm_cert) > 0 ? 0 : 1
-
   domain_name       = local.domain_name
   zone_id           = data.aws_route53_zone.this.id
   validation_method = "DNS"
