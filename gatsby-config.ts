@@ -44,8 +44,8 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-s3`,
       options: {
-        bucketName: 'onesimple-frontend-site-dev-dfudi',
-        region: 'us-east-1',
+        bucketName: process.env.BUCKET_NAME,
+        region: process.env.BUCKET_REGION,
         protocol: new URL(siteAddress).protocol.slice(0, -1),
         hostname: new URL(siteAddress).hostname,
         acl: null,

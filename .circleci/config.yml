@@ -22,7 +22,6 @@ jobs:
       - run:
           name: Set general variables
           command: |
-            export STAGE=staging
             echo "export TF_VAR_stage=$STAGE" >> $BASH_ENV
             echo "export TF_WORKSPACE=$STAGE-onesimple-site" >> $BASH_ENV
       - aws-cli/setup:
@@ -51,6 +50,8 @@ jobs:
             cd .infrastructure/cloud/
             terraform apply tf_plan
             echo "export CLOUDFRONT_DISTRIBUTION_ID=$(terraform -chdir=.infrastructure/cloud/ output cdn__distribution_id)" >> $BASH_ENV
+            echo "export BUCKET_NAME=$(terraform -chdir=.infrastructure/cloud/ output s3_bucket__bucket_name)" >> $BASH_ENV
+            echo "export BUCKET_REGION=$(terraform -chdir=.infrastructure/cloud/ output s3_bucket__bucket_region)" >> $BASH_ENV
       - run:
           name: Save environments
           command: cp $BASH_ENV bash.env
@@ -67,10 +68,10 @@ jobs:
       - frontend/install-packages
       - run:
           name: Build
-          command: yarn util:build
+          command: yarn gatsby:build
       - run:
           name: Deploy
-          command: yarn util:deploy
+          command: yarn gatsby:deploy
       - persist_to_workspace:
           root: .
           paths:
@@ -103,7 +104,9 @@ workflows:
           context: general_env
           name: typescript
       - terraform_plan_and_apply:
-          context: terraform_cloud_env
+          context: 
+            - is_staging
+            - terraform_cloud
       - build_and_deploy:
           requires:
             - linters
