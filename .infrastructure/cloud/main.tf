@@ -1,3 +1,12 @@
+# 1. Подключить terraform cloud - думаю название сделать onesimple-frontend, чтобы cloudfront был общий
+# для сайта и приложения в будущем. Хотя нужно изучить как это работает, но можно просто
+# уже зарелизить.
+# 1.1. Передать env в circleci (занести tf cloud в general_env я думаю)
+# 2. Обновить переменную, так чтобы project name совпадал
+# 3. Провести выкладку, а потом на merge сделать.
+# Желательно сделать для staging свой cloudform и ссылку отображать
+# на этапе deploy. Ссылку несложно, это просто output.
+
 provider "aws" {
   region = local.region
 }
@@ -10,7 +19,7 @@ resource "random_string" "bucket" {
 
 locals {
   region            = "us-east-1"
-  project_name      = join("-", ["onesimple-frontend-site", var.stage])
+  project_name      = join("-", [var.stage, "onesimple-frontend-site"])
   domain_name       = "onesimpleone.com"
   domain_name_alias = join("", ["www.", local.domain_name])
 
@@ -80,7 +89,7 @@ module "acm" {
 }
 
 resource "aws_cloudfront_cache_policy" "no_cache_policy" {
-  name    = "no-cache-policy"
+  name    = join("-", [project_name, "no-cache-policy"])
   comment = "Policy to prevent caching."
 
   parameters_in_cache_key_and_forwarded_to_origin {
@@ -103,7 +112,7 @@ resource "aws_cloudfront_cache_policy" "no_cache_policy" {
 }
 
 resource "aws_cloudfront_cache_policy" "cache_policy" {
-  name    = "cache-policy"
+  name    = join("-", [project_name, "no-cache-policy"])
   comment = "Policy to cache files"
 
   parameters_in_cache_key_and_forwarded_to_origin {
@@ -130,7 +139,7 @@ module "cdn" {
   source = "terraform-aws-modules/cloudfront/aws"
 
   aliases             = [local.domain_name_alias]
-  comment             = "OneSimple – Site and App"
+  comment             = "[$${var.local}] OneSimple – Site and App"
   enabled             = true
   is_ipv6_enabled     = true
   price_class         = "PriceClass_All"
