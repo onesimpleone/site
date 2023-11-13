@@ -65,6 +65,9 @@ jobs:
     steps:
       - attach_workspace:
           at: .
+      - run:
+          name: Init environments
+          command: cat bash.env > $BASH_ENV
       - frontend/install-packages
       - run:
           name: Build
@@ -98,11 +101,11 @@ workflows:
   developement:
     jobs:
       - frontend/linters:
-          context: general_env
           name: linters
-      - frontend/typescript:
           context: general_env
+      - frontend/typescript:
           name: typescript
+          context: general_env
       - terraform_plan_and_apply:
           context:
             - is_staging
