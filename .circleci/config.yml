@@ -100,7 +100,8 @@ workflows:
       - frontend/typescript:
           context: general_env
           name: typescript
-      - terraform_plan_and_apply
+      - terraform_plan_and_apply:
+          context: terraform_cloud_env
       - build_and_deploy:
           requires:
             - linters
