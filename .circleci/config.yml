@@ -65,10 +65,9 @@ jobs:
     steps:
       - attach_workspace:
           at: .
-      - run:
-          name: Init environments
-          command: cat bash.env > $BASH_ENV
       - frontend/install-packages
+      - aws-cli/setup:
+          role_arn: arn:aws:iam::${AWS_ACCOUNT_ID}:role/OIDC_ADMIN_ROLE
       - run:
           name: Build
           command: yarn gatsby:build
