@@ -25,7 +25,7 @@ export const PrimaryButton = ({ className, path = '/', title }: IProps) => {
   return (
     <Link
       activeClassName={styleSet.navLinkActive}
-      className={[styleSet.navLink, className].join(' ')}
+      className={`${styleSet.navLink} ${className}`}
       to={path}
     >
       {title}
