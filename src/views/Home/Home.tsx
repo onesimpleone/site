@@ -4,15 +4,16 @@ import { HeadFC } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 
 import * as styles from './Home.module.scss'
-import { Bubble, MetaBadge, PlatformBadge } from 'components'
+import MetaBadge from 'assets/meta-badge.svg'
+import { Bubble, PlatformBadge } from 'components'
 import { Footer, Header } from 'components/layout'
 import * as presets from 'styles/presets.module.scss'
 
 export const Home = () => (
-  <>
+  <main>
     <Bubble className={styles.smallBubble} size="small" />
     <Bubble className={styles.bigBubble} size="big" />
-    <main className={styles.main}>
+    <section>
       <Header />
       <div className={styles.mainScreen}>
         <div className={styles.content}>
@@ -23,19 +24,31 @@ export const Home = () => (
           <p>Simplify sales and customer service. Free access.</p>
 
           <div className={styles.downloadButtons}>
-            <a href="https://forms.gle/axdDXjw7k4HpR1Z39" target="_blank">
-              <PlatformBadge className={styles.button} type="appStore" />
+            <a
+              className={styles.button}
+              href="https://forms.gle/axdDXjw7k4HpR1Z39"
+              target="_blank"
+            >
+              <PlatformBadge type="appStore" />
             </a>
-            <a href="https://forms.gle/axdDXjw7k4HpR1Z39" target="_blank">
-              <PlatformBadge className={styles.button} type="googlePlay" />
+            <a
+              className={styles.button}
+              href="https://forms.gle/axdDXjw7k4HpR1Z39"
+              target="_blank"
+            >
+              <PlatformBadge type="googlePlay" />
             </a>
-            <a href="https://forms.gle/axdDXjw7k4HpR1Z39" target="_blank">
-              <PlatformBadge className={styles.button} type="web" />
+            <a
+              className={styles.button}
+              href="https://forms.gle/axdDXjw7k4HpR1Z39"
+              target="_blank"
+            >
+              <PlatformBadge type="web" />
             </a>
           </div>
         </div>
 
-        <div className={styles.presentation}>
+        <div className={styles.presentationDesktop}>
           <StaticImage
             alt="OneSimple mobile app interface"
             className={styles.phone}
@@ -43,16 +56,28 @@ export const Home = () => (
           />
         </div>
       </div>
+    </section>
 
+    <div className={styles.presentation}>
+      <StaticImage
+        alt="OneSimple mobile app interface"
+        className={styles.phone}
+        src="./interface.png"
+      />
+    </div>
+
+    <section>
       <div className={styles.secondScreen}>
         <div className={styles.officialMeta}>
           <p className={presets.h2}>Official Meta API</p>
-          <MetaBadge className={styles.metaBadge} />
+          <div className={styles.metaBadge}>
+            <MetaBadge />
+          </div>
         </div>
       </div>
-    </main>
+    </section>
     <Footer />
-  </>
+  </main>
 )
 
 export const HomeHead: HeadFC = () => <title>OneSimple</title>
