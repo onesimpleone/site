@@ -64,13 +64,6 @@ module "s3_bucket" {
   tags = local.tags
 }
 
-resource "aws_s3_bucket_object" "apple_app_site_association" {
-  bucket       = module.s3_bucket.bucket_id
-  key          = ".well-known/apple-app-site-association"
-  source       = "static/.well-known/apple-app-site-association"
-  content_type = "application/json"
-}
-
 module "acm" {
   source  = "terraform-aws-modules/acm/aws"
   version = "~> 4.0"
