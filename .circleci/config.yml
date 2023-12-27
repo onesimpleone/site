@@ -171,6 +171,7 @@ workflows:
       - terraform_plan_and_apply:
           context:
             - is_production
+            - general_env
             - terraform_cloud
       - build_and_deploy:
           requires:
