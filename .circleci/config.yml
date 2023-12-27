@@ -94,7 +94,10 @@ jobs:
       - run:
           name: Your CloudFront Link
           command: echo $CLOUDFRONT_URL
-  set_content_type:
+
+  # Set metadata for specific files.
+  # For example, content-type: application/json
+  set_metadata_for_files:
     executor:
       name: aws-cli/default
     environment:
@@ -108,7 +111,7 @@ jobs:
       - aws-cli/setup:
           role_arn: arn:aws:iam::${AWS_ACCOUNT_ID}:role/OIDC_ADMIN_ROLE
       - run:
-          name: Set Content-Type for apple-app-site-association
+          name: Set Content-Type for apple-app-site-association file
           command: |
             source $BASH_ENV
             aws s3api copy-object --bucket $BUCKET_NAME --copy-source $BUCKET_NAME/.well-known/apple-app-site-association --key .well-known/apple-app-site-association --metadata-directive REPLACE --content-type "application/json"
@@ -154,7 +157,7 @@ workflows:
             - linters
             - typescript
             - terraform_plan_and_apply
-      - set_content_type:
+      - set_metadata_for_files:
           requires:
             - build_and_deploy
       - clear_cloudfront_cache:
