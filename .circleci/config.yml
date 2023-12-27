@@ -136,37 +136,38 @@ jobs:
             aws cloudfront wait invalidation-completed --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --id $INVALIDATION_ID
 
 workflows:
-  developement:
+  # developement:
+  #   when:
+  #     and:
+  #       - not:
+  #           equal: [main, << pipeline.git.branch >>]
+  #   jobs:
+  #     - frontend/linters:
+  #         name: linters
+  #         context: general_env
+  #     - frontend/typescript:
+  #         name: typescript
+  #         context: general_env
+  #     - terraform_plan_and_apply:
+  #         context:
+  #           - is_staging
+  #           - terraform_cloud
+  #     - build_and_deploy:
+  #         requires:
+  #           - linters
+  #           - typescript
+  #           - terraform_plan_and_apply
+  #     - set_metadata_for_files:
+  #         requires:
+  #           - build_and_deploy
+  #     - clear_cloudfront_cache:
+  #         requires:
+  #           - build_and_deploy
+  publish:
     when:
       and:
         - not:
             equal: [main, << pipeline.git.branch >>]
-    jobs:
-      - frontend/linters:
-          name: linters
-          context: general_env
-      - frontend/typescript:
-          name: typescript
-          context: general_env
-      - terraform_plan_and_apply:
-          context:
-            - is_staging
-            - terraform_cloud
-      - build_and_deploy:
-          requires:
-            - linters
-            - typescript
-            - terraform_plan_and_apply
-      - set_metadata_for_files:
-          requires:
-            - build_and_deploy
-      - clear_cloudfront_cache:
-          requires:
-            - build_and_deploy
-  publish:
-    when:
-      and:
-        - equal: [main, << pipeline.git.branch >>]
     jobs:
       - terraform_plan_and_apply:
           context:
