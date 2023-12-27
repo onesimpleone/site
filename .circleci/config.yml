@@ -92,13 +92,25 @@ jobs:
           name: Deploy
           command: yarn gatsby:deploy
       - run:
+          name: Your CloudFront Link
+          command: echo $CLOUDFRONT_URL
+  update_content_type:
+    executor:
+      name: aws-cli/default
+    environment:
+      <<: *default_environment
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Init environments
+          command: cat bash.env > $BASH_ENV
+      - run:
           name: Update Content-Type for apple-app-site-association
           command: |
             source $BASH_ENV
             aws s3api copy-object --bucket $BUCKET_NAME --copy-source $BUCKET_NAME/static/.well-known/apple-app-site-association --key static/.well-known/apple-app-site-association --metadata-directive REPLACE --content-type "application/json"
-      - run:
-          name: Your CloudFront Link
-          command: echo $CLOUDFRONT_URL
+
   clear_cloudfront_cache:
     executor:
       name: aws-cli/default
@@ -140,6 +152,9 @@ workflows:
             - linters
             - typescript
             - terraform_plan_and_apply
+      - update_content_type:
+          requires:
+            - build_and_deploy
       - clear_cloudfront_cache:
           requires:
             - build_and_deploy
