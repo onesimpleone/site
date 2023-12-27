@@ -175,6 +175,9 @@ workflows:
       - build_and_deploy:
           requires:
             - terraform_plan_and_apply
+      - set_metadata_for_files:
+          requires:
+            - build_and_deploy
       - clear_cloudfront_cache:
           requires:
             - build_and_deploy
