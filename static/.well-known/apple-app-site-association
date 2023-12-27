@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "JPTKW7WX4B.com.onesimple",
+        "paths": ["/app/*"]
+      }
+    ]
+  }
+}
