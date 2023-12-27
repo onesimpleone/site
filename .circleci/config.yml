@@ -94,7 +94,7 @@ jobs:
       - run:
           name: Your CloudFront Link
           command: echo $CLOUDFRONT_URL
-  update_content_type:
+  set_content_type:
     executor:
       name: aws-cli/default
     environment:
@@ -108,10 +108,10 @@ jobs:
       - aws-cli/setup:
           role_arn: arn:aws:iam::${AWS_ACCOUNT_ID}:role/OIDC_ADMIN_ROLE
       - run:
-          name: Update Content-Type for apple-app-site-association
+          name: Set Content-Type for apple-app-site-association
           command: |
             source $BASH_ENV
-            aws s3api copy-object --bucket $BUCKET_NAME --copy-source $BUCKET_NAME/static/.well-known/apple-app-site-association --key static/.well-known/apple-app-site-association --metadata-directive REPLACE --content-type "application/json"
+            aws s3api copy-object --bucket $BUCKET_NAME --copy-source $BUCKET_NAME/.well-known/apple-app-site-association --key .well-known/apple-app-site-association --metadata-directive REPLACE --content-type "application/json"
 
   clear_cloudfront_cache:
     executor:
@@ -154,7 +154,7 @@ workflows:
             - linters
             - typescript
             - terraform_plan_and_apply
-      - update_content_type:
+      - set_content_type:
           requires:
             - build_and_deploy
       - clear_cloudfront_cache:
