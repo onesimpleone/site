@@ -12,6 +12,10 @@
   ],
   "rewrites": [
     {
+      "source": "/app/",
+      "destination": "https://app-git-tech-110-update-public-url-onesimple.vercel.app/"
+    },
+    {
       "source": "/app/:subdir*",
       "destination": "https://app-git-tech-110-update-public-url-onesimple.vercel.app/:subdir*"
     },
