@@ -12,10 +12,6 @@
   ],
   "rewrites": [
     {
-      "source": "/app/",
-      "destination": "https://app-onesimple.vercel.app/"
-    },
-    {
       "source": "/app/:path*",
       "destination": "https://app-onesimple.vercel.app/:path*"
     },
