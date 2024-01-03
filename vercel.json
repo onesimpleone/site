@@ -11,13 +11,10 @@
     }
   ],
   "rewrites": [
-    {
-      "source": "/app/",
-      "destination": "https://app-gzbmt318c-onesimple.vercel.app/"
-    },
+    { "source": "/app/", "destination": "https://app-onesimple.vercel.app/" },
     {
       "source": "/app/:match*",
-      "destination": "https://app-gzbmt318c-onesimple.vercel.app/:match*"
+      "destination": "https://app-onesimple.vercel.app/:match*"
     },
     { "source": "/", "destination": "/" },
     {
