@@ -12,8 +12,8 @@
   ],
   "rewrites": [
     {
-      "source": "/app/:asset*",
-      "destination": "https://app-onesimple.vercel.app/:asset*"
+      "source": "/app/:path*",
+      "destination": "https://app-onesimple.vercel.app/:path*"
     },
     {
       "source": "/app/(.*)",
