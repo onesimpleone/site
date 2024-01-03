@@ -20,5 +20,6 @@
       "destination": "https://app-onesimple.vercel.app/:path*"
     },
     { "source": "/:path*", "destination": "/:path*" }
-  ]
+  ],
+  "trailingSlash": true
 }
