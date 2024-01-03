@@ -16,8 +16,8 @@
       "destination": "https://app-git-tech-110-update-public-url-onesimple.vercel.app/app/"
     },
     {
-      "source": "/app/:subdir*",
-      "destination": "https://app-git-tech-110-update-public-url-onesimple.vercel.app/:subdir*"
+      "source": "/app/(.*)",
+      "destination": "https://app-git-tech-110-update-public-url-onesimple.vercel.app/app/"
     },
     { "source": "/", "destination": "/" },
     {
