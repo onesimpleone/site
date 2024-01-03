@@ -12,13 +12,13 @@
   ],
   "rewrites": [
     {
+      "source": "/app/:path*",
+      "destination": "https://app-onesimple.vercel.app/:path*"
+    },
+    {
       "source": "/app/(.*)",
       "destination": "https://app-onesimple.vercel.app/"
     },
-    { "source": "/", "destination": "/" },
-    {
-      "source": "/:match*",
-      "destination": "/:match*"
-    }
+    { "source": "/:path*", "destination": "/:path*" }
   ]
 }
