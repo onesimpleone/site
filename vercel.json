@@ -9,5 +9,12 @@
         }
       ]
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/app/:match*",
+      "destination": "https://app-onesimple.vercel.app/:match*"
+    },
+    { "source": "/(.*)", "destination": "/" }
   ]
 }
