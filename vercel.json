@@ -13,11 +13,11 @@
   "rewrites": [
     {
       "source": "/app/",
-      "destination": "https://app-git-tech-110-update-public-url-onesimple.vercel.app/app/"
+      "destination": "https://app-eyj8gl816-onesimple.vercel.app/app/"
     },
     {
       "source": "/app/(.*)",
-      "destination": "https://app-git-tech-110-update-public-url-onesimple.vercel.app/:match*"
+      "destination": "https://app-eyj8gl816-onesimple.vercel.app/:match*"
     },
     { "source": "/", "destination": "/" },
     {
