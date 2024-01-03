@@ -137,10 +137,10 @@ jobs:
 
 workflows:
   developement:
-    when:
-      and:
-        - not:
-            equal: [main, << pipeline.git.branch >>]
+    # when:
+    #   and:
+    #     - not:
+    #         equal: [main, << pipeline.git.branch >>]
     jobs:
       - frontend/linters:
           name: linters
@@ -148,38 +148,38 @@ workflows:
       - frontend/typescript:
           name: typescript
           context: general_env
-      - terraform_plan_and_apply:
-          context:
-            - is_staging
-            - terraform_cloud
-      - build_and_deploy:
-          requires:
-            - linters
-            - typescript
-            - terraform_plan_and_apply
-      - set_metadata_for_files:
-          requires:
-            - build_and_deploy
-      - clear_cloudfront_cache:
-          requires:
-            - build_and_deploy
-  publish:
-    when:
-      and:
-        - equal: [main, << pipeline.git.branch >>]
-    jobs:
-      - terraform_plan_and_apply:
-          context:
-            - is_production
-            - terraform_cloud
-      - build_and_deploy:
-          context:
-            - general_env
-          requires:
-            - terraform_plan_and_apply
-      - set_metadata_for_files:
-          requires:
-            - build_and_deploy
-      - clear_cloudfront_cache:
-          requires:
-            - build_and_deploy
+      # - terraform_plan_and_apply:
+      #     context:
+      #       - is_staging
+      #       - terraform_cloud
+      # - build_and_deploy:
+      #     requires:
+      #       - linters
+      #       - typescript
+      #       - terraform_plan_and_apply
+      # - set_metadata_for_files:
+      #     requires:
+      #       - build_and_deploy
+      # - clear_cloudfront_cache:
+      #     requires:
+      #       - build_and_deploy
+  # publish:
+  #   when:
+  #     and:
+  #       - equal: [main, << pipeline.git.branch >>]
+  #   jobs:
+  #     - terraform_plan_and_apply:
+  #         context:
+  #           - is_production
+  #           - terraform_cloud
+  #     - build_and_deploy:
+  #         context:
+  #           - general_env
+  #         requires:
+  #           - terraform_plan_and_apply
+  #     - set_metadata_for_files:
+  #         requires:
+  #           - build_and_deploy
+  #     - clear_cloudfront_cache:
+  #         requires:
+  #           - build_and_deploy
