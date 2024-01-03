@@ -21,7 +21,7 @@
     },
     {
       "source": "/app/(.*)",
-      "destination": "https://app-onesimple.vercel.app/:path*"
+      "destination": "https://app-onesimple.vercel.app/"
     },
     { "source": "/:path*", "destination": "/:path*" }
   ]
