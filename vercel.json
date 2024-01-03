@@ -1,0 +1,24 @@
+{
+  "headers": [
+    {
+      "source": "/.well-known/apple-app-site-association",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/app/",
+      "destination": "https://app-onesimple.vercel.app/"
+    },
+    {
+      "source": "/app/:path*",
+      "destination": "https://app-onesimple.vercel.app/:path*"
+    },
+    { "source": "/:path*", "destination": "/:path*" }
+  ]
+}
