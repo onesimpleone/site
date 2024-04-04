@@ -80,4 +80,12 @@ export const Home = () => (
   </main>
 )
 
-export const HomeHead: HeadFC = () => <title>OneSimple</title>
+export const HomeHead: HeadFC = () => (
+  <>
+    <title>OneSimple</title>
+    <meta
+      content="kmiwvp601mnjrcmoj2aiki1mcd27ie"
+      name="facebook-domain-verification"
+    />
+  </>
+)
