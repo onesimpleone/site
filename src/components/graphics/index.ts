@@ -1,4 +1,3 @@
 export { Logo } from './Logo/Logo'
-export { BigBlob } from './BigBlob/BigBlob'
-export { SmallBlob } from './SmallBlob/SmallBlob'
+export { Blob } from './Blob/Blob'
 export { PlatformBadge } from './PlatformBadge/PlatformBadge'

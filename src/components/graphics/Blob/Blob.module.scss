@@ -1,0 +1,16 @@
+@import '../../../styles/variables.module';
+
+.blob {
+  position: absolute;
+  display: block;
+
+  .small {
+    width: 250px;
+    height: 216px;
+  }
+
+  .big {
+    width: 505px;
+    height: 506px;
+  }
+}
