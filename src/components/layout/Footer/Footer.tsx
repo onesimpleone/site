@@ -10,23 +10,20 @@ export const Footer = () => (
       <div className={styles.links}>
         <SecondaryButton
           className={styles.linkButton}
-          path="/about"
-          title="About"
-        />
-        <SecondaryButton
-          className={styles.linkButton}
-          path="/terms"
-          title="Terms"
-        />
-        <SecondaryButton
-          className={styles.linkButton}
-          path="/policy"
+          isNavigational={false}
+          path="/documents/policy.html"
           title="Policy"
+        />
+        <SecondaryButton
+          className={styles.linkButton}
+          isNavigational={false}
+          path="/documents/cookies.html"
+          title="Cookies"
         />
       </div>
 
       <p className={`${presets.paragraph} ${styles.copyright}`}>
-        © 2023 OneSimple. All rights reserved
+        © 2024 OneSimple. All rights reserved
       </p>
     </div>
   </footer>

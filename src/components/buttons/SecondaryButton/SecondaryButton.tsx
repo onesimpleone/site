@@ -12,17 +12,25 @@ interface IProps {
   /** Container style */
   className?: string
 
+  /** Return Gatsby Link component */
+  isNavigational?: boolean
+
   /** Path */
   path?: string
 }
 
-export const SecondaryButton = ({ className, path = '/', title }: IProps) => {
+export const SecondaryButton = ({
+  className,
+  isNavigational,
+  path = '/',
+  title,
+}: IProps) => {
   const styleSet = {
     navLink: `${presets.secondaryButton} ${styles.navLink}`,
     navLinkActive: `${presets.secondaryButton} ${styles.navLink}`,
   }
 
-  return (
+  return isNavigational ? (
     <Link
       activeClassName={styleSet.navLinkActive}
       className={`${styleSet.navLink} ${className}`}
@@ -30,5 +38,14 @@ export const SecondaryButton = ({ className, path = '/', title }: IProps) => {
     >
       {title}
     </Link>
+  ) : (
+    <a
+      className={`${styleSet.navLink} ${className}`}
+      href={path}
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      {title}
+    </a>
   )
 }
