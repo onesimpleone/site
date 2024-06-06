@@ -10,4 +10,4 @@ tsconfig.json
 # Stylelint
 *.scss
 *.css
-**/*.html
+*.html
