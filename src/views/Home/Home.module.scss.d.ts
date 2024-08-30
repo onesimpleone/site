@@ -1,7 +1,5 @@
 export declare const bigBlob: string
-export declare const button: string
 export declare const content: string
-export declare const downloadButtons: string
 export declare const mainScreen: string
 export declare const metaBadge: string
 export declare const officialMeta: string

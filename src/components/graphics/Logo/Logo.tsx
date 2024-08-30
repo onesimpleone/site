@@ -14,9 +14,10 @@ export const Logo = () => (
       <div className={styles.name}>
         <LogoName />
       </div>
-      <p className={presets.caption}>
+      {/* OS-879 Hidden */}
+      {/* <p className={presets.caption}>
         Designed for <span className={presets.caption}>Meta</span>
-      </p>
+      </p> */}
     </div>
   </div>
 )

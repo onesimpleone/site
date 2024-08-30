@@ -1,4 +1,19 @@
-@import './sizes.module';
+// H1
+$h1: 2.5rem;
+
+// H2
+$h2: 1.3125rem;
+
+// Buttons
+$primary-button: 1rem;
+$secondary-button: 1rem;
+$cta-button: 1.125rem;
+
+// Paragraph
+$paragraph: 1rem;
+
+// Misc
+$caption: 0.875rem;
 
 @mixin font(
   $font-size,
@@ -30,6 +45,10 @@
   @include font($secondary-button, normal, 480, 1.5rem);
 
   text-transform: capitalize;
+}
+
+.ctaButton {
+  @include font($cta-button, normal, 640, 1.625rem);
 }
 
 .paragraph {
