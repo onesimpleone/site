@@ -1,4 +1,4 @@
-export declare const bigBubble: string
+export declare const bigBlob: string
 export declare const button: string
 export declare const content: string
 export declare const downloadButtons: string
@@ -9,4 +9,4 @@ export declare const phone: string
 export declare const presentation: string
 export declare const presentationDesktop: string
 export declare const secondScreen: string
-export declare const smallBubble: string
+export declare const smallBlob: string

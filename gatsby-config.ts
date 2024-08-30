@@ -16,7 +16,12 @@ const config: GatsbyConfig = {
         utils: path.join(__dirname, 'src'),
       },
     },
-    // "gatsby-plugin-google-gtag",
+    {
+      resolve: 'gatsby-plugin-google-gtag',
+      options: {
+        trackingIds: ['G-RV2GMTBBQF'],
+      },
+    },
     'gatsby-plugin-image',
     'gatsby-plugin-sitemap',
     'gatsby-plugin-sharp',

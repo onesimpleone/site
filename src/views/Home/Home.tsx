@@ -5,14 +5,14 @@ import { StaticImage } from 'gatsby-plugin-image'
 
 import * as styles from './Home.module.scss'
 import MetaBadge from 'assets/meta-badge.svg'
-import { Bubble, PlatformBadge } from 'components'
+import { Blob, PlatformBadge } from 'components'
 import { Footer, Header } from 'components/layout'
 import * as presets from 'styles/presets.module.scss'
 
 export const Home = () => (
   <main>
-    <Bubble className={styles.smallBubble} size="small" />
-    <Bubble className={styles.bigBubble} size="big" />
+    <Blob className={styles.smallBlob} size="small" />
+    <Blob className={styles.bigBlob} size="big" />
     <section>
       <Header />
       <div className={styles.mainScreen}>
@@ -52,6 +52,7 @@ export const Home = () => (
           <StaticImage
             alt="OneSimple mobile app interface"
             className={styles.phone}
+            placeholder="none"
             src="./interface.png"
           />
         </div>
