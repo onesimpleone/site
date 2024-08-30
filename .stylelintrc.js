@@ -2,5 +2,5 @@ const config = require('@onesimpleone/configs/stylelint')
 
 module.exports = {
   ...config,
-  ignoreFiles: ['src/styles/reset.css'],
+  ignoreFiles: ['src/styles/reset.css', 'static/documents/*', 'public/*'],
 }
