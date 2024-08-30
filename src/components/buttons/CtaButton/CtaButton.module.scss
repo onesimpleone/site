@@ -1,0 +1,15 @@
+@import '../../../styles/variables.module';
+
+.container {
+  display: flex;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 20px;
+  background-color: $grayscale45;
+  color: $grayscale0;
+  border-radius: 6px;
+}
