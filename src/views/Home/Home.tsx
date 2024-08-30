@@ -4,8 +4,9 @@ import { HeadFC } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 
 import * as styles from './Home.module.scss'
-import MetaBadge from 'assets/meta-badge.svg'
-import { Blob, PlatformBadge } from 'components'
+// OS-879 Hidden
+// import MetaBadge from 'assets/meta-badge.svg'
+import { Blob, CtaButton } from 'components'
 import { Footer, Header } from 'components/layout'
 import * as presets from 'styles/presets.module.scss'
 
@@ -23,29 +24,7 @@ export const Home = () => (
           </h1>
           <p>Simplify sales and customer service. Free access.</p>
 
-          <div className={styles.downloadButtons}>
-            <a
-              className={styles.button}
-              href="https://forms.gle/axdDXjw7k4HpR1Z39"
-              target="_blank"
-            >
-              <PlatformBadge type="appStore" />
-            </a>
-            <a
-              className={styles.button}
-              href="https://forms.gle/axdDXjw7k4HpR1Z39"
-              target="_blank"
-            >
-              <PlatformBadge type="googlePlay" />
-            </a>
-            <a
-              className={styles.button}
-              href="https://forms.gle/axdDXjw7k4HpR1Z39"
-              target="_blank"
-            >
-              <PlatformBadge type="web" />
-            </a>
-          </div>
+          <CtaButton title="Apply for early access" />
         </div>
 
         <div className={styles.presentationDesktop}>
@@ -69,12 +48,13 @@ export const Home = () => (
 
     <section>
       <div className={styles.secondScreen}>
-        <div className={styles.officialMeta}>
+        {/* OS-879 Hidden */}
+        {/* <div className={styles.officialMeta}>
           <p className={presets.h2}>Official Meta API</p>
           <div className={styles.metaBadge}>
             <MetaBadge />
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
     <Footer />
