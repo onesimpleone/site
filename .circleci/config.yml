@@ -3,9 +3,15 @@ version: 2.1
 orbs:
   frontend: onesimpleone/frontend@1.2.0
 
+jobs:
+  build:
+    docker:
+      - image: cimg/node:18.20
+
 workflows:
   developement:
     jobs:
+      - build
       - frontend/linters:
           name: linters
           context: general_env
