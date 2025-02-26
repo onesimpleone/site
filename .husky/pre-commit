@@ -2,6 +2,5 @@
 # . "$(dirname -- "$0")/_/husky.sh"
 
 # # Run linters against staged git files: stylelint, prettier and etc.
-# yarn lint-staged
-# yarn pretty-package-json
+yarn lint-staged
  

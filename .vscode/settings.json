@@ -1,6 +1,7 @@
 {
   "editor.tabSize": 2,
   "files.exclude": {
+    "node_modules": true,
     "**/*.scss.d.ts": true,
 
     // Terraform
@@ -12,5 +13,6 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
-  "eslint.validate": ["javascript"]
+  "eslint.validate": ["javascript"],
+  "stylelint.validate": ["html", "astro"]
 }
