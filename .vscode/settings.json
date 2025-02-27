@@ -10,9 +10,17 @@
     ".infrastructure/cloud/.terraform.lock.hcl": true,
     ".infrastructure/cloud/.terraform.tfstate.lock.info": true
   },
+  "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
+    "source.fixAll": "explicit"
   },
+  "prettier.enable": true,
+  "stylelint.validate": ["css", "scss", "sass", "html", "astro"],
   "eslint.validate": ["javascript"],
-  "stylelint.validate": ["html", "astro"]
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

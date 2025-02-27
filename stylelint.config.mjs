@@ -1,4 +1,4 @@
-import prettierConfig from './prettier.config.mjs';
+
 
 export default {
   extends: [
@@ -10,14 +10,17 @@ export default {
   ],
   plugins: ["stylelint-order"],
   rules: {
-    "string-quotes": prettierConfig.singleQuote === true ? "single" : "double",
     "selector-class-pattern": null,
   },
   ignoreFiles: ["coverage/**", "build/**", "public/*"],
   overrides: [
     {
-      files: ["**/*.sass"],
-      customSyntax: "postcss-sass",
+      files: ["**/*.scss"],
+      customSyntax: "postcss-scss"
     },
+    {
+      files: ["**/*.sass"],
+      customSyntax: "postcss-sass"
+    }
   ],
 };
