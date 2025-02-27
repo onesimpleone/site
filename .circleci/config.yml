@@ -21,5 +21,9 @@ jobs:
 workflows:
   developement:
     jobs:
-      - linters
-      - typescript
+      - linters:
+          name: linters
+          context: general_env
+      - typescript:
+          name: typescript
+          context: general_env
