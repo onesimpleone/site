@@ -1,20 +1,25 @@
 version: 2.1
 
-orbs:
-  frontend: onesimpleone/frontend@1.2.0
-
 jobs:
-  build:
+  linters:
     docker:
       - image: cimg/node:18.20
+    steps:
+      - checkout
+      - run: yarn install
+      - run: yarn lint:prettier-check
+      - run: yarn lint:stylelint-check
+
+  typescript:
+    docker:
+      - image: cimg/node:18.20
+    steps:
+      - checkout
+      - run: yarn install
+      - run: yarn typescript:check
 
 workflows:
   developement:
     jobs:
-      - build
-      - frontend/linters:
-          name: linters
-          context: general_env
-      - frontend/typescript:
-          name: typescript
-          context: general_env
+      - linters
+      - typescript
