@@ -41,7 +41,7 @@
     "typescript": "^5.7.3"
   },
   "lint-staged": {
-    "*.{css,js,jsx,ts,tsx,json,yml,yaml}": "prettier --write",
-    "*.{css,sass}": "stylelint --fix && stylelint --fix"
+    "*.{css,js,jsx,ts,tsx,json,yml,yaml,astro}": "prettier --write",
+    "*.{css,sass,scss}": "stylelint --fix && stylelint --fix"
   }
 }
