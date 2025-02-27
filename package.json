@@ -14,8 +14,8 @@
     "lint:eslint-fix": "yarn lint:eslint-check --fix",
     "lint:prettier-check": "prettier --check .",
     "lint:prettier-fix": "prettier --write .",
-    "lint:stylelint-check": "stylelint '**/*{.css,.scss}'",
-    "lint:stylelint-fix": "stylelint '**/*{.css,.scss}' --fix",
+    "lint:stylelint-check": "stylelint '**/*{.css,.scss,.sass}'",
+    "lint:stylelint-fix": "stylelint '**/*{.css,.scss,.sass}' --fix",
     "prepare": "husky",
     "typescript:check": "tsc --noEmit"
   },

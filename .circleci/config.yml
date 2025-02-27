@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run: yarn install
       - run: yarn prettier --check .
-      - run: yarn stylelint '**/*{.css,.scss}'
+      - run: yarn stylelint '**/*{.css,.scss,.sass}'
 
   typescript:
     docker:
