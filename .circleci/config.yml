@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run: yarn install
       - run: yarn lint:prettier-check
-      - run: lint:stylelint-check
+      - run: yarn lint:stylelint-check
 
   typescript:
     docker:
