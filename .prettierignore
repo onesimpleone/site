@@ -3,6 +3,9 @@ build
 coverage
 public
 
+# Static
+static
+
 # Configs
 tsconfig.json
 prettier.config.mjs
