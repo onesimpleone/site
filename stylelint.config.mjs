@@ -10,14 +10,4 @@ export default {
     "selector-class-pattern": null,
   },
   ignoreFiles: ["coverage/**", "build/**", "public/*"],
-  overrides: [
-    {
-      files: ["**/*.scss"],
-      customSyntax: "postcss-scss"
-    },
-    {
-      files: ["**/*.sass"],
-      customSyntax: "postcss-sass"
-    }
-  ],
 };

@@ -1,12 +1,16 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src",                                  /* Specify the base directory to resolve non-relative module names. */
+    "baseUrl": "./src",
+    "paths": {
+      "@components/*": ["components/*"],
+      "@layouts/*": ["layouts/*"]
+    }
   },
-  "paths": {
-      "@components/*": ["src/components/*"],
-      "@layouts/*": ["src/layouts/*"]
-  },
-  "extends": ["astro/tsconfigs/base", "astro/tsconfigs/strict", "astro/tsconfigs/strictest"],
+  "extends": [
+    "astro/tsconfigs/base",
+    "astro/tsconfigs/strict",
+    "astro/tsconfigs/strictest"
+  ],
   "include": [".astro/types.d.ts", "**/*", "prettier.config.mjs"],
   "exclude": ["dist"]
 }

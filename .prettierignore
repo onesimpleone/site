@@ -7,7 +7,6 @@ public
 static
 
 # Configs
-tsconfig.json
 prettier.config.mjs
 eslint.config.js
 stylelint.config.mjs

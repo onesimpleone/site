@@ -1,10 +1,17 @@
 ---
 import astroLogo from '../assets/astro.svg'
 import background from '../assets/background.svg'
+import './Welcome.scss'
 ---
 
 <div id="container">
-  <img id="background" src={background.src} alt="" fetchpriority="high" />
+  <img
+    id="background"
+    class="container"
+    src={background.src}
+    alt=""
+    fetchpriority="high"
+  />
   <main>
     <section id="hero">
       <a href="https://astro.build"

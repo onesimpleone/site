@@ -5,19 +5,18 @@
   "description": "OneSimple site.",
   "type": "module",
   "scripts": {
-    "dev": "astro dev",
     "build": "astro check && astro build",
-    "preview": "astro preview",
-    "astro": "astro",
-    "check": "astro check",
+    "lint:astro-check": "astro check",
     "lint:eslint-check": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:eslint-fix": "yarn lint:eslint-check --fix",
     "lint:prettier-check": "prettier --check .",
     "lint:prettier-fix": "prettier --write .",
     "lint:stylelint-check": "stylelint '**/*{.css,.scss,.sass}'",
     "lint:stylelint-fix": "stylelint '**/*{.css,.scss,.sass}' --fix",
+    "lint:typescript-check": "tsc --noEmit",
     "prepare": "husky",
-    "typescript:check": "tsc --noEmit"
+    "preview": "astro preview",
+    "start": "astro dev"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",

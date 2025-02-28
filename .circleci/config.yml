@@ -7,8 +7,8 @@ jobs:
     steps:
       - checkout
       - run: yarn install
-      - run: yarn prettier --check .
-      - run: yarn stylelint '**/*{.css,.scss,.sass}'
+      - run: yarn lint:prettier-check
+      - run: lint:stylelint-check
 
   typescript:
     docker:
@@ -16,8 +16,8 @@ jobs:
     steps:
       - checkout
       - run: yarn install
-      - run: yarn tsc --noEmit
-      - run: yarn astro check
+      - run: yarn lint:typescript-check
+      - run: yarn lint:astro-check
 
 workflows:
   developement:
