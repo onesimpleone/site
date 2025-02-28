@@ -8,11 +8,11 @@ export default {
       },
     },
   ],
-  printWidth: 79,
+  arrowParens: 'avoid',
   bracketSpacing: true,
   bracketSameLine: false,
+  printWidth: 79,
   singleQuote: true,
   trailingComma: 'all',
-  arrowParens: 'avoid',
   semi: false,
 };

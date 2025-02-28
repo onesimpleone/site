@@ -9,8 +9,3 @@ prettier.config.mjs
 eslint.config.js
 stylelint.config.mjs
 astro.config.mjs
-
-# Stylelint
-*.scss
-*.css
-*.html
