@@ -15,7 +15,6 @@
     "lint:stylelint-fix": "stylelint '**/*{.css,.scss,.sass}' --fix",
     "lint:typescript-check": "tsc --noEmit",
     "prepare": "husky",
-    "preview": "astro preview",
     "start": "astro dev"
   },
   "dependencies": {
