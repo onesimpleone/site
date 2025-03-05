@@ -1,13 +1,13 @@
 # Artifacts:
 build
 coverage
-.cache
 public
 
-# Configs
-tsconfig.json
+# Static
+static
 
-# Stylelint
-*.scss
-*.css
-*.html
+# Configs
+prettier.config.mjs
+eslint.config.js
+stylelint.config.mjs
+astro.config.mjs
