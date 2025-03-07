@@ -1,0 +1,29 @@
+---
+import { small, senary5, senary20, grayscale40 } from '@styles'
+
+const { link, title } = Astro.props
+---
+
+<a href={link} class="button">
+  {title}
+</a>
+
+<style define:vars={{ small, senary5, senary20, grayscale40 }}>
+  .button {
+    height: 38px;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 14px;
+    background-color: var(--senary5);
+    font-size: var(--small);
+    font-weight: 700;
+    letter-spacing: 0.0083rem;
+    border-radius: 14px;
+    color: var(--grayscale40);
+  }
+
+  .button:hover {
+    background-color: var(--senary20);
+    cursor: pointer;
+  }
+</style>

@@ -1,0 +1,102 @@
+---
+import { Image } from 'astro:assets'
+import PrimaryButton from '@components/buttons/PrimaryButton.astro'
+import { h1, h3, instagram, simpleGray, small } from '@styles'
+import interfaceImage from '@assets/images/interface.png'
+---
+
+<style is:global>
+  .hero-cta-button {
+    margin-top: 36px;
+  }
+</style>
+
+<section>
+  <div class="container">
+    <div class="content">
+      <h1>
+        Business messaging app for <span class="highlight">Instagram</span>
+      </h1>
+
+      <h2>
+        Automate conversations, streamline team collaboration, and drive more
+        sales – all with one powerful tool.
+      </h2>
+
+      <PrimaryButton title="Try for free" class="hero-cta-button" />
+      <p>Available on iOS, Android & Web</p>
+      <div id="separator"></div>
+    </div>
+
+    <Image src={interfaceImage} alt="Interface image" class="interface" />
+  </div>
+</section>
+
+<style define:vars={{ h1, instagram, simpleGray, h3, small }}>
+  section {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    justify-content: center;
+  }
+
+  .container {
+    max-width: 1200px;
+    padding-top: 36px;
+    padding-bottom: 36px;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .interface {
+    width: 939px;
+    height: 683px;
+    margin-left: 44px;
+  }
+
+  .content {
+    display: flex;
+    max-width: 588px;
+    width: 100%;
+    margin-top: 112px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  h1 {
+    display: inline;
+    font-size: var(--h1);
+    font-weight: 700;
+    line-height: 3.4444rem;
+    width: 100%;
+  }
+
+  .highlight {
+    display: inline;
+    color: var(--instagram);
+    font-style: italic;
+  }
+
+  h2 {
+    font-size: var(--h3);
+    font-weight: 500;
+    line-height: 1.7778rem;
+    margin-top: 24px;
+  }
+
+  .cta-button {
+    margin-top: 36px;
+  }
+
+  p {
+    font-size: var(--small);
+    font-weight: 500;
+    color: var(--simpleGray);
+    margin-top: 36px;
+  }
+
+  #separator {
+    width: 588px;
+    display: block;
+  }
+</style>

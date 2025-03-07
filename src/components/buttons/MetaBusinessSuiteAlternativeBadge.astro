@@ -1,0 +1,43 @@
+---
+import { info40, small } from '@styles'
+
+const { link } = Astro.props
+---
+
+<div class="container">
+  <a href={link}>
+    <div class="badge">
+      <p>Meta Business Suite Alternative</p>
+    </div>
+  </a>
+</div>
+
+<style define:vars={{ info40, small }}>
+  .container {
+    height: 100%;
+  }
+
+  .badge {
+    height: 55px;
+    padding-top: 22px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    border-radius: 0 0 8px 8px;
+    background: linear-gradient(45deg, #f5e8f7, #e2ebfc, #e1f7f0);
+  }
+
+  p {
+    font-size: var(--small);
+    font-weight: 650;
+    color: var(--info40);
+  }
+
+  a:hover {
+    cursor: pointer;
+  }
+
+  a:hover p {
+    opacity: 0.8;
+  }
+</style>

@@ -1,0 +1,29 @@
+---
+import { grayscale50, senary20, grayscale0, paragraph } from '@styles'
+
+const { link, title, class: className } = Astro.props
+---
+
+<a href={link} class={`button ${className}`}>
+  {title}
+</a>
+
+<style define:vars={{ grayscale50, senary20, grayscale0, paragraph }}>
+  .button {
+    height: 54px;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 24px;
+    background-color: var(--grayscale50);
+    font-size: var(--paragraph);
+    font-weight: 700;
+    letter-spacing: 0.02rem;
+    border-radius: 16px;
+    color: var(--grayscale0);
+  }
+
+  .button:hover {
+    color: var(--senary20);
+    cursor: pointer;
+  }
+</style>

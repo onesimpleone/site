@@ -1,0 +1,7 @@
+export const h1 = '3rem'
+export const h2 = '1.4444rem'
+export const h3 = '1.2222rem'
+export const paragraph = '1rem'
+export const small = '0.8333rem'
+export const h1Mobile = '2.5rem'
+export const h3Mobile = '1rem'

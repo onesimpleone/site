@@ -1,0 +1,57 @@
+---
+import { Image } from 'astro:assets'
+import { grayscale50, small, simpleGray } from '@styles'
+import InstagramButton from '@components/socials/InstagramButton.astro'
+import FooterLink from '@components/links/FooterLink.astro'
+import LogoSmallImage from '@assets/images/logo-small.svg'
+---
+
+<footer>
+  <div class="container">
+    <Image src={LogoSmallImage} alt="OneSimple logo" class="logo" />
+    <div class="socials">
+      <InstagramButton />
+    </div>
+    <div>
+      <FooterLink title="Terms" link="/documents/terms.html" />
+      <FooterLink title="Privacy" link="/documents/privacy.html" />
+      <FooterLink title="Cookies" link="/documents/cookies.html" />
+    </div>
+    <p class="copyright">© 2025 OneSimple, Inc. All rights reserved.</p>
+  </div>
+</footer>
+
+<style define:vars={{ grayscale50, small, simpleGray }}>
+  footer {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    justify-content: center;
+    background-color: var(--grayscale50);
+  }
+
+  .container {
+    max-width: 1200px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 72px;
+    padding-bottom: 64px;
+  }
+
+  .logo {
+    width: 44px;
+    height: 40px;
+    margin-bottom: 64px;
+  }
+
+  .socials {
+    margin-bottom: 24px;
+  }
+
+  .copyright {
+    font-size: var(--small);
+    font-weight: 500;
+    color: var(--simpleGray);
+  }
+</style>
