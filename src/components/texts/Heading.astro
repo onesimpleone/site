@@ -1,0 +1,41 @@
+---
+import { h1 as h1Style, h3, instagram, meta } from '@styles'
+
+const { h1, h2, highlight, isMeta } = Astro.props
+---
+
+<h1>
+  {`${h1}\u00A0`}<span class:list={['highlight', { metaHighlight: isMeta }]}
+    >{highlight}</span
+  >
+</h1>
+<h2>
+  {h2}
+</h2>
+
+<style define:vars={{ h1Style, h3, instagram, meta }}>
+  h1 {
+    display: inline;
+    font-size: var(--h1Style);
+    font-weight: 700;
+    line-height: 3.4444rem;
+    width: 100%;
+  }
+
+  .highlight {
+    display: inline;
+    color: var(--instagram);
+    font-style: italic;
+  }
+
+  .metaHighlight {
+    color: var(--meta);
+  }
+
+  h2 {
+    font-size: var(--h3);
+    font-weight: 500;
+    line-height: 1.7778rem;
+    margin-top: 24px;
+  }
+</style>

@@ -1,0 +1,73 @@
+---
+import PrimaryButton from '@components/buttons/PrimaryButton.astro'
+import { h1, h3 } from '@styles'
+---
+
+<section>
+  <div class="container">
+    <div class="content">
+      <p class="code">404</p>
+      <p class="title">Oops! Not found.</p>
+      <p class="message">
+        Let us know in the chat what you're looking for, and we'll help you.
+      </p>
+    </div>
+
+    <PrimaryButton title="Go home" link="/" />
+  </div>
+</section>
+
+<style define:vars={{ h1, h3 }}>
+  section {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    justify-content: center;
+  }
+
+  .container {
+    max-width: 1200px;
+    padding-top: 48px;
+    padding-bottom: 120px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .content {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 36px;
+  }
+
+  .code {
+    font-size: 12.7778rem;
+    font-weight: 700;
+    line-height: 12.7778rem;
+    text-align: center;
+    background: url('src/assets/images/404error.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .title {
+    font-size: var(--h1);
+    font-weight: 700;
+    line-height: 3.4444rem;
+    text-align: center;
+    margin-top: 16px;
+  }
+
+  .message {
+    font-size: var(--h3);
+    font-weight: 500;
+    line-height: 1.7778rem;
+    text-align: center;
+    margin-top: 12px;
+  }
+</style>

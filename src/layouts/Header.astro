@@ -2,6 +2,7 @@
 import SecondaryButton from '@components/buttons/SecondaryButton.astro'
 import Logo from '@components/buttons/Logo.astro'
 import MetaBusinessSuiteAlternativeBadge from '@components/buttons/MetaBusinessSuiteAlternativeBadge.astro'
+const { isBadgeShown } = Astro.props
 ---
 
 <header>
@@ -9,10 +10,14 @@ import MetaBusinessSuiteAlternativeBadge from '@components/buttons/MetaBusinessS
     <Logo />
 
     <div class="buttons">
-      <MetaBusinessSuiteAlternativeBadge />
+      {
+        isBadgeShown && (
+          <MetaBusinessSuiteAlternativeBadge link="/meta-business-suite-alternative" />
+        )
+      }
       <SecondaryButton
         title="Sign up"
-        href="https://forms.gle/axdDXjw7k4HpR1Z39"
+        link="https://forms.gle/axdDXjw7k4HpR1Z39"
       />
     </div>
   </div>

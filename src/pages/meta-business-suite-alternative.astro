@@ -1,0 +1,24 @@
+---
+import Heading from '@components/texts/Heading.astro'
+import Layout from '@layouts/Layout.astro'
+import Header from '@layouts/Header.astro'
+import Hero from '@layouts/Hero.astro'
+import OfficialByMeta from '@layouts/OfficialByMeta.astro'
+import SeoBlock from '@layouts/SeoBlock.astro'
+import Footer from '@layouts/Footer.astro'
+---
+
+<Layout>
+  <Header isBadgeShown={false} />
+  <Hero>
+    <Heading
+      h1="Perfect alternative for"
+      highlight="Meta Business Suite"
+      h2="Automate conversations, streamline team collaboration, and drive more sales – all with one powerful tool."
+      isMeta={true}
+    />
+  </Hero>
+  <OfficialByMeta />
+  <SeoBlock />
+  <Footer />
+</Layout>
