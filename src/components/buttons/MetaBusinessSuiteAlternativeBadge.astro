@@ -1,10 +1,10 @@
 ---
 import { info40, small } from '@styles'
 
-const { link } = Astro.props
+const { link, class: className } = Astro.props
 ---
 
-<div class="container">
+<div class={`container ${className}`}>
   <a href={link}>
     <div class="badge">
       <p>Meta Business Suite Alternative</p>
@@ -39,5 +39,11 @@ const { link } = Astro.props
 
   a:hover p {
     opacity: 0.8;
+  }
+
+  @media screen and (max-width: 743px) {
+    .container {
+      display: none;
+    }
   }
 </style>

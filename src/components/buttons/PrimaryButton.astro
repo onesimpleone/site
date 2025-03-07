@@ -9,7 +9,7 @@ const { link, title, class: className } = Astro.props
 </a>
 
 <style define:vars={{ grayscale50, senary20, grayscale0, paragraph }}>
-  .button {
+  a {
     height: 54px;
     align-items: center;
     justify-content: center;
@@ -22,7 +22,7 @@ const { link, title, class: className } = Astro.props
     color: var(--grayscale0);
   }
 
-  .button:hover {
+  a:hover {
     color: var(--senary20);
     cursor: pointer;
   }

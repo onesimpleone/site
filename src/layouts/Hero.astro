@@ -1,40 +1,26 @@
 ---
 import { Image } from 'astro:assets'
-import PrimaryButton from '@components/buttons/PrimaryButton.astro'
-import { simpleGray, small } from '@styles'
 import interfaceImage from '@assets/images/interface.png'
 ---
-
-<style is:global>
-  .hero-cta-button {
-    margin-top: 36px;
-  }
-</style>
 
 <section>
   <div class="container">
     <div class="content">
       <slot />
-
-      <PrimaryButton
-        title="Try for free"
-        link="https://forms.gle/axdDXjw7k4HpR1Z39"
-        class="hero-cta-button"
-      />
-      <p>Available on iOS, Android & Web</p>
       <div id="separator"></div>
     </div>
 
-    <Image src={interfaceImage} alt="Interface image" class="interface" />
+    <Image src={interfaceImage} alt="Interface image" class="image" />
   </div>
 </section>
 
-<style define:vars={{ simpleGray, small }}>
+<style>
   section {
     width: 100%;
     height: auto;
     margin: 0 auto;
     justify-content: center;
+    overflow-x: hidden;
   }
 
   .container {
@@ -43,12 +29,6 @@ import interfaceImage from '@assets/images/interface.png'
     padding-bottom: 36px;
     align-items: flex-start;
     justify-content: flex-start;
-  }
-
-  .interface {
-    width: 939px;
-    height: 683px;
-    margin-left: 44px;
   }
 
   .content {
@@ -60,19 +40,41 @@ import interfaceImage from '@assets/images/interface.png'
     align-items: flex-start;
   }
 
-  .cta-button {
-    margin-top: 36px;
-  }
-
-  p {
-    font-size: var(--small);
-    font-weight: 500;
-    color: var(--simpleGray);
-    margin-top: 36px;
-  }
-
   #separator {
     width: 588px;
     display: block;
+  }
+
+  .image {
+    width: 939px;
+    height: 683px;
+    margin-left: 44px;
+  }
+
+  @media screen and (max-width: 743px) {
+    section {
+      padding: 72px 18px 48px 18px;
+      flex-direction: column;
+    }
+
+    .container {
+      flex-direction: column;
+      padding: 0;
+    }
+
+    .content {
+      margin-top: 0;
+      margin-bottom: 72px;
+    }
+
+    #separator {
+      width: 0;
+    }
+
+    .image {
+      width: 889px;
+      height: 647px;
+      margin-left: 0;
+    }
   }
 </style>

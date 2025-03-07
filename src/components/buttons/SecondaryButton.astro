@@ -9,8 +9,7 @@ const { link, title } = Astro.props
 </a>
 
 <style define:vars={{ small, senary5, senary20, grayscale40 }}>
-  .button {
-    height: 38px;
+  a {
     align-items: center;
     justify-content: center;
     padding: 10px 14px;
@@ -22,8 +21,14 @@ const { link, title } = Astro.props
     color: var(--grayscale40);
   }
 
-  .button:hover {
+  a:hover {
     background-color: var(--senary20);
     cursor: pointer;
+  }
+
+  @media screen and (max-width: 743px) {
+    a {
+      padding: 12px 24px;
+    }
   }
 </style>
