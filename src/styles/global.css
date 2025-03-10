@@ -1,6 +1,6 @@
 @font-face {
   font-weight: 400 700;
-  font-family: 'Figtree';
+  font-family: Figtree;
   font-style: normal;
   font-display: swap;
   src: url('/fonts/Figtree-VariableFont_wght.ttf') format('truetype');
@@ -19,6 +19,10 @@
   margin: 0;
 }
 
+body * {
+  display: flex;
+}
+
 *:focus {
   outline: none;
 }
@@ -32,10 +36,6 @@ body {
   height: 100%;
   background-color: #f9faf7;
   overflow-x: hidden;
-}
-
-body * {
-  display: flex;
 }
 
 a {
@@ -53,7 +53,7 @@ h6,
 span,
 button {
   font-family:
-    'Figtree',
+    Figtree,
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
