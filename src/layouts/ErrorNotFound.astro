@@ -1,6 +1,6 @@
 ---
 import PrimaryButton from '@components/buttons/PrimaryButton.astro'
-import { h1, h3 } from '@styles'
+import { h1, h3, h1Mobile, paragraph } from '@styles'
 ---
 
 <section>
@@ -17,7 +17,7 @@ import { h1, h3 } from '@styles'
   </div>
 </section>
 
-<style define:vars={{ h1, h3 }}>
+<style define:vars={{ h1, h3, h1Mobile, paragraph }}>
   section {
     width: 100%;
     height: auto;
@@ -69,5 +69,47 @@ import { h1, h3 } from '@styles'
     line-height: 1.7778rem;
     text-align: center;
     margin-top: 12px;
+  }
+
+  @media screen and (max-width: 374px) {
+    section {
+      padding: 0 18px;
+    }
+
+    .code {
+      font-size: 8.2222rem;
+      line-height: 8.2222rem;
+    }
+
+    .title {
+      font-size: var(--h1Mobile);
+      line-height: 2.7778rem;
+    }
+
+    .message {
+      font-size: var(--paragraph);
+      line-height: 1.5556rem;
+    }
+  }
+
+  @media screen and (min-width: 375px) and (max-width: 743px) {
+    section {
+      padding: 0 18px;
+    }
+
+    .code {
+      font-size: 10rem;
+      line-height: 10rem;
+    }
+
+    .title {
+      font-size: var(--h1Mobile);
+      line-height: 2.7778rem;
+    }
+
+    .message {
+      font-size: var(--paragraph);
+      line-height: 1.5556rem;
+    }
   }
 </style>
