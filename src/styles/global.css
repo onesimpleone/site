@@ -36,6 +36,7 @@ body {
   height: 100%;
   background-color: #f9faf7;
   overflow-x: hidden;
+  min-width: 320px;
 }
 
 a {
