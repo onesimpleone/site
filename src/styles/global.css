@@ -2,7 +2,7 @@
   font-weight: 400 700;
   font-family: 'Figtree';
   font-style: normal;
-  font-display: optional;
+  font-display: swap;
   src: url('/fonts/Figtree-VariableFont_wght.ttf') format('truetype');
 }
 
@@ -10,7 +10,7 @@
   font-weight: 700;
   font-family: 'Figtree Italic';
   font-style: italic;
-  font-display: optional;
+  font-display: swap;
   src: url('/fonts/Figtree-Italic-VariableFont_wght.ttf') format('truetype');
 }
 

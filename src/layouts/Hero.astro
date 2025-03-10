@@ -51,6 +51,7 @@ import interfaceImage from '@assets/images/interface.png'
     margin-left: 44px;
   }
 
+  /* Mobile styles */
   @media screen and (max-width: 743px) {
     section {
       padding: 72px 18px 48px 18px;
@@ -75,6 +76,58 @@ import interfaceImage from '@assets/images/interface.png'
       width: 889px;
       height: 647px;
       margin-left: 0;
+    }
+  }
+
+  /* Small tablet styles */
+  @media screen and (min-width: 744px) and (max-width: 926px) {
+    section {
+      padding: 96px 36px 48px 36px;
+      flex-direction: column;
+    }
+
+    .container {
+      flex-direction: column;
+      padding: 0;
+    }
+
+    .content {
+      margin-top: 0;
+      margin-bottom: 72px;
+    }
+
+    #separator {
+      width: 0;
+    }
+
+    .image {
+      width: 862px;
+      height: 627px;
+      margin-left: 0;
+    }
+  }
+
+  /** Large tablet styles */
+  @media screen and (min-width: 927px) and (max-width: 1271px) {
+    section {
+      padding: 48px 36px 36px 36px;
+      flex-direction: row;
+    }
+
+    .container {
+      max-width: 100%;
+      flex-direction: row;
+      padding: 0;
+    }
+
+    #separator {
+      width: 482px;
+    }
+
+    .image {
+      width: 862px;
+      height: 627px;
+      margin-left: 24px;
     }
   }
 </style>
