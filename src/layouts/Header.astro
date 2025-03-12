@@ -4,6 +4,7 @@ import Logo from '@components/buttons/Logo.astro'
 import MetaBusinessSuiteAlternativeBadge from '@components/buttons/MetaBusinessSuiteAlternativeBadge.astro'
 import Menu from '@components/blocks/Menu.astro'
 import MenuButton from '@components/buttons/MenuButton.astro'
+import { linkToForm } from '@assets/constants'
 
 const { isBadgeShown } = Astro.props
 ---
@@ -22,10 +23,7 @@ const { isBadgeShown } = Astro.props
             <MetaBusinessSuiteAlternativeBadge link="/meta-business-suite-alternative" />
           )
         }
-        <SecondaryButton
-          title="Sign up"
-          link="https://forms.gle/axdDXjw7k4HpR1Z39"
-        />
+        <SecondaryButton title="Sign up" link={linkToForm} />
       </div>
     </div>
   </div>

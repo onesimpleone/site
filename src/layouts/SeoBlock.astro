@@ -1,5 +1,6 @@
 ---
 import PrimaryButton from '@components/buttons/PrimaryButton.astro'
+import { linkToForm } from '@assets/constants'
 ---
 
 <section>
@@ -25,10 +26,7 @@ import PrimaryButton from '@components/buttons/PrimaryButton.astro'
         interaction.
       </p>
 
-      <PrimaryButton
-        title="Try it now"
-        link="https://forms.gle/axdDXjw7k4HpR1Z39"
-      />
+      <PrimaryButton title="Try it now" link={linkToForm} />
     </div>
   </div>
 </section>
