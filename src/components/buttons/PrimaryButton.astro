@@ -1,14 +1,14 @@
 ---
-import { grayscale50, senary20, grayscale0, paragraph } from '@styles'
+import { grayscale50, senary15, grayscale0, paragraph } from '@styles'
 
 const { link, title, class: className } = Astro.props
 ---
 
-<a href={link} class={`button ${className}`}>
+<a href={link} class={`${className}`}>
   {title}
 </a>
 
-<style define:vars={{ grayscale50, senary20, grayscale0, paragraph }}>
+<style define:vars={{ grayscale50, senary15, grayscale0, paragraph }}>
   a {
     height: 54px;
     align-items: center;
@@ -23,7 +23,7 @@ const { link, title, class: className } = Astro.props
   }
 
   a:hover {
-    color: var(--senary20);
+    color: var(--senary15);
     cursor: pointer;
   }
 </style>

@@ -1,14 +1,14 @@
 ---
-import { small, senary5, senary20, grayscale40 } from '@styles'
+import { small, senary5, senary15, grayscale40 } from '@styles'
 
 const { link, title } = Astro.props
 ---
 
-<a href={link} class="button">
+<a href={link}>
   {title}
 </a>
 
-<style define:vars={{ small, senary5, senary20, grayscale40 }}>
+<style define:vars={{ small, senary5, senary15, grayscale40 }}>
   a {
     align-items: center;
     justify-content: center;
@@ -22,7 +22,7 @@ const { link, title } = Astro.props
   }
 
   a:hover {
-    background-color: var(--senary20);
+    background-color: var(--senary15);
     cursor: pointer;
   }
 

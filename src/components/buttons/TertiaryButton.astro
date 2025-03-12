@@ -1,0 +1,37 @@
+---
+import { small, senary25, senary15, grayscale40 } from '@styles'
+
+const { link, title, class: className } = Astro.props
+---
+
+<a href={link}>
+  <div class={`icon ${className}`}></div>
+  {title}
+</a>
+
+<style define:vars={{ small, senary25, senary15, grayscale40 }}>
+  a {
+    align-items: center;
+    justify-content: center;
+    padding: 13px 24px 13px 18px;
+    background-color: var(--senary15);
+    font-size: var(--small);
+    font-weight: 700;
+    letter-spacing: 0.0083rem;
+    border-radius: 14px;
+    color: var(--grayscale40);
+  }
+
+  a:hover {
+    background-color: var(--senary25);
+    cursor: pointer;
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 6px;
+  }
+</style>

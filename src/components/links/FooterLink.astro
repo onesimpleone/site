@@ -1,5 +1,5 @@
 ---
-import { small, grayscale0, senary20 } from '@styles'
+import { small, grayscale0, senary15 } from '@styles'
 const { link, title } = Astro.props
 ---
 
@@ -7,7 +7,7 @@ const { link, title } = Astro.props
   {title}
 </a>
 
-<style define:vars={{ small, grayscale0, senary20 }}>
+<style define:vars={{ small, grayscale0, senary15 }}>
   .link {
     padding: 12px;
     font-size: var(--small);
@@ -16,6 +16,6 @@ const { link, title } = Astro.props
   }
 
   .link:hover {
-    color: var(--senary20);
+    color: var(--senary15);
   }
 </style>

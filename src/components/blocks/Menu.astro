@@ -1,0 +1,90 @@
+---
+import TertiaryButton from '@components/buttons/TertiaryButton.astro'
+import { freshWhite, paragraph, primary5 } from '@styles'
+---
+
+<style is:global>
+  .tertiary-button-header-menu {
+    background: url('/src/assets/icons/logo-icon.svg');
+  }
+</style>
+
+<div class="menu-sheet" id="menu-sheet">
+  <div class="container">
+    <div class="content">
+      <a class="mbsa" href="/meta-business-suite-alternative"
+        >Meta Business Suite Alternative</a
+      >
+    </div>
+
+    <TertiaryButton
+      title="Sign up for free"
+      class="tertiary-button-header-menu"
+    />
+  </div>
+</div>
+
+<style define:vars={{ freshWhite, paragraph, primary5 }}>
+  .menu-sheet {
+    flex-direction: column;
+    position: relative;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition:
+      opacity 0.2s ease-in-out,
+      transform 0.2s ease-in-out;
+  }
+
+  .menu-sheet.displayed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .container {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--freshWhite);
+    padding-top: 16px;
+    padding-bottom: 24px;
+    position: absolute;
+    left: 0;
+    border-radius: 0px 0px 12px 12px;
+    box-shadow:
+      0px 4px 10px 0px rgba(0, 0, 0, 0.06),
+      0px 6px 6px 0px rgba(153, 168, 207, 0.04),
+      0px 24px 20px 0px rgba(170, 158, 172, 0.1);
+    gap: 8px;
+  }
+
+  .content {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  a {
+    width: 100%;
+    height: 54px;
+    font-size: var(--paragraph);
+    font-weight: 500;
+    padding: 16px 24px;
+    align-items: center;
+  }
+
+  a:active,
+  a.mbsa:active {
+    background: var(--primary5);
+  }
+
+  .mbsa {
+    background:
+      linear-gradient(90deg, #f9faf7 0%, rgba(255, 255, 255, 0) 100%),
+      linear-gradient(122deg, #f5e8f7 0%, #e2ebfc 50%, #e1f7f0 100%);
+  }
+
+  @media screen and (min-width: 744px) {
+    .menu-sheet.displayed {
+      display: none;
+    }
+  }
+</style>
