@@ -1,6 +1,4 @@
 ---
-import { small, senary5, senary15, grayscale40 } from '@styles'
-
 const { link, title } = Astro.props
 ---
 
@@ -8,25 +6,27 @@ const { link, title } = Astro.props
   {title}
 </a>
 
-<style define:vars={{ small, senary5, senary15, grayscale40 }}>
+<style lang="scss">
+  @use '../../styles/styles.scss' as *;
+
   a {
     align-items: center;
     justify-content: center;
     padding: 10px 14px;
-    background-color: var(--senary5);
-    font-size: var(--small);
+    background-color: var(--senary-5);
+    font-size: var(--small-text-size);
     font-weight: 700;
     letter-spacing: 0.0083rem;
     border-radius: 14px;
-    color: var(--grayscale40);
+    color: var(--grayscale-40);
   }
 
   a:hover {
-    background-color: var(--senary15);
+    background-color: var(--senary-15);
     cursor: pointer;
   }
 
-  @media screen and (max-width: 1271px) {
+  @media screen and (max-width: $max-large-tablet-bp) {
     a {
       padding: 12px 24px;
     }

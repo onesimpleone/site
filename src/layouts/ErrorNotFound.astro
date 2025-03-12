@@ -1,6 +1,5 @@
 ---
 import PrimaryButton from '@components/buttons/PrimaryButton.astro'
-import { h1, h3, h1Mobile, paragraph } from '@styles'
 ---
 
 <section>
@@ -17,7 +16,9 @@ import { h1, h3, h1Mobile, paragraph } from '@styles'
   </div>
 </section>
 
-<style define:vars={{ h1, h3, h1Mobile, paragraph }}>
+<style lang="scss">
+  @use '../styles/styles.scss' as *;
+
   section {
     width: 100%;
     height: auto;
@@ -56,7 +57,7 @@ import { h1, h3, h1Mobile, paragraph } from '@styles'
   }
 
   .title {
-    font-size: var(--h1);
+    font-size: var(--h1-size);
     font-weight: 700;
     line-height: 3.4444rem;
     text-align: center;
@@ -64,14 +65,14 @@ import { h1, h3, h1Mobile, paragraph } from '@styles'
   }
 
   .message {
-    font-size: var(--h3);
+    font-size: var(--h3-size);
     font-weight: 500;
     line-height: 1.7778rem;
     text-align: center;
     margin-top: 12px;
   }
 
-  @media screen and (max-width: 374px) {
+  @media screen and (max-width: $max-small-phone) {
     section {
       padding: 0 18px;
     }
@@ -82,17 +83,17 @@ import { h1, h3, h1Mobile, paragraph } from '@styles'
     }
 
     .title {
-      font-size: var(--h1Mobile);
+      font-size: var(--h1-mobile-size);
       line-height: 2.7778rem;
     }
 
     .message {
-      font-size: var(--paragraph);
+      font-size: var(--text-size);
       line-height: 1.5556rem;
     }
   }
 
-  @media screen and (min-width: 375px) and (max-width: 743px) {
+  @media screen and (min-width: $min-medium-phone-bp) and (max-width: $max-large-phone-bp) {
     section {
       padding: 0 18px;
     }
@@ -103,12 +104,12 @@ import { h1, h3, h1Mobile, paragraph } from '@styles'
     }
 
     .title {
-      font-size: var(--h1Mobile);
+      font-size: var(--h1-mobile-size);
       line-height: 2.7778rem;
     }
 
     .message {
-      font-size: var(--paragraph);
+      font-size: var(--text-size);
       line-height: 1.5556rem;
     }
   }

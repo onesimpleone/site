@@ -1,7 +1,3 @@
----
-import { instagram } from '@styles'
----
-
 <a
   href="https://www.instagram.com/onesimpleone"
   target="_blank"
@@ -38,7 +34,9 @@ import { instagram } from '@styles'
   </svg>
 </a>
 
-<style define:vars={{ instagram }}>
+<style lang="scss">
+  @use '../../styles/styles.scss' as *;
+
   a {
     width: 38px;
     height: 38px;
