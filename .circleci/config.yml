@@ -15,7 +15,7 @@ jobs:
     steps:
       - checkout
       - run: yarn install
-      - run: yarn check
+      - run: yarn lint:astro-check
       - run: yarn lint:typescript-check
 
 workflows:

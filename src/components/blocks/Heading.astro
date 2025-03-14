@@ -5,17 +5,6 @@ import { linkToForm } from '@assets/constants'
 const { h2, buttonTitle } = Astro.props
 ---
 
-<h1><slot /></h1>
-<h2>
-  {h2}
-</h2>
-<PrimaryButton
-  title={buttonTitle}
-  link={linkToForm}
-  class="primary-button-hero"
-/>
-<p>Available on iOS, Android & Web</p>
-
 <style lang="scss" is:global>
   @use '../../styles/styles.scss' as *;
 
@@ -29,6 +18,17 @@ const { h2, buttonTitle } = Astro.props
     }
   }
 </style>
+
+<h1><slot /></h1>
+<h2>
+  {h2}
+</h2>
+<PrimaryButton
+  title={buttonTitle}
+  link={linkToForm}
+  class="primary-button-hero"
+/>
+<p>Available on iOS, Android & Web</p>
 
 <style lang="scss">
   @use '../../styles/styles.scss' as *;

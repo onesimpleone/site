@@ -5,8 +5,9 @@
   "description": "OneSimple site.",
   "type": "module",
   "scripts": {
-    "check": "astro check",
     "build": "astro check && astro build",
+    "build:preview": "astro preview",
+    "lint:astro-check": "astro check",
     "lint:eslint-check": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:eslint-fix": "yarn lint:eslint-check --fix",
     "lint:prettier-check": "prettier --check .",
