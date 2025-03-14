@@ -1,5 +1,7 @@
 ---
 const { title, description } = Astro.props
+
+const fullTitle = `${title} | OneSimple`
 ---
 
 <!doctype html>
@@ -10,7 +12,7 @@ const { title, description } = Astro.props
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>{title}</title>
+    <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <meta name="theme-color" content="#0D0D0D" />
     <meta name="generator" content={Astro.generator} />
@@ -18,18 +20,19 @@ const { title, description } = Astro.props
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://onesimpleone.com/" />
-    <meta property="og:title" content={title} />
+    <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content="/thumbnail.jpg" />
 
     <!-- Twitter (X) -->
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content={title} />
+    <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content="/thumbnail.jpg" />
 
     <!-- Links -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
