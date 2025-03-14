@@ -1,29 +1,35 @@
 ---
 import PrimaryButton from '@components/buttons/PrimaryButton.astro'
 import { linkToForm } from '@assets/constants'
+import { emDash } from '@styles'
 ---
 
 <section>
   <div class="container">
     <div class="content">
-      <h2>
-        The Best Meta Business Suite Alternative for Managing Instagram DMs
-      </h2>
+      <h2>Perfect alternative of Meta Business Suite</h2>
 
       <p>
-        Looking for a <strong>Meta Business Suite alternative</strong> to streamline
-        your Instagram client interactions? Our app offers powerful tools for managing
-        DMs, automating responses, and organizing conversations—all in one intuitive
-        platform. Boost efficiency and improve customer engagement without the complexity
-        of traditional solutions.
+        OneSimple app adds <strong>essential features</strong> missing in Meta Business
+        Suite. Now you can manage chats with categories, track deals, store any
+        customer and deal information, collaborate seamlessly with your team, and
+        quickly find conversations using powerful filters.
       </p>
       <p>
-        Unlike Meta Business Suite, our solution is designed specifically for
-        businesses that rely on Instagram Direct for client communication. With
-        advanced chat management, team collaboration features, and smart
-        automation, you can handle messages faster and more effectively. Stay
-        ahead of the competition with a tool built for seamless customer
-        interaction.
+        OneSimple app <strong>fixes stability issues</strong>{
+          `${emDash}`
+        }instant notifications, ultra-fast chat loading, and seamless data
+        backup.
+      </p>
+      <p>
+        We designed OneSimple as a <strong>fast and easy-to-use</strong> app for
+        businesses that don’t want to waste time setting up complex software.
+      </p>
+      <p>
+        Work on any device you prefer{`${emDash}`}<strong>Android</strong>, <strong
+          >iOS</strong
+        >, or directly in your
+        <strong>browser</strong>.
       </p>
 
       <PrimaryButton title="Try it now" link={linkToForm} />
@@ -65,7 +71,6 @@ import { linkToForm } from '@assets/constants'
     font-size: var(--h2-size);
     font-weight: 700;
     text-align: center;
-    width: 100%;
   }
 
   p {

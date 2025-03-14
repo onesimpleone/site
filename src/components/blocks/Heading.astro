@@ -2,15 +2,10 @@
 import PrimaryButton from '@components/buttons/PrimaryButton.astro'
 import { linkToForm } from '@assets/constants'
 
-const { h1, h2, h1Highlight, isMeta, buttonTitle } = Astro.props
-const space = '\u00A0'
+const { h2, buttonTitle } = Astro.props
 ---
 
-<h1>
-  {`${h1}${space}`}<span class:list={['highlight', { metaHighlight: isMeta }]}
-    >{h1Highlight}</span
-  >
-</h1>
+<h1><slot /></h1>
 <h2>
   {h2}
 </h2>
@@ -39,21 +34,11 @@ const space = '\u00A0'
   @use '../../styles/styles.scss' as *;
 
   h1 {
-    display: inline;
+    display: block;
     font-size: var(--h1-size);
     font-weight: 700;
     line-height: 3.4444rem;
     width: 100%;
-  }
-
-  .highlight {
-    display: inline;
-    color: var(--instagram);
-    font-style: italic;
-  }
-
-  .metaHighlight {
-    color: var(--meta);
   }
 
   h2 {

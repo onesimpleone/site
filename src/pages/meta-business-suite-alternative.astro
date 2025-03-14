@@ -6,20 +6,33 @@ import Hero from '@layouts/Hero.astro'
 import OfficialByMeta from '@layouts/OfficialByMeta.astro'
 import InfoBlock from '@layouts/InfoBlock.astro'
 import Footer from '@layouts/Footer.astro'
+import { space, emDash } from '@styles'
 ---
 
-<Layout>
+<Layout
+  title="Meta Business Suite Alternative | OneSimple"
+  description="The best alternative to Meta Business Suite. Organize chats, track deals, and collaborate seamlessly with your team—all in one powerful app."
+>
   <Header isBadgeShown={false} />
   <Hero>
     <Heading
-      h1="Perfect alternative for"
-      h1Highlight="Meta Business Suite"
-      h2="Automate conversations, streamline team collaboration, and drive more sales – all with one powerful tool."
-      isMeta={true}
+      h2={`Manage your business effortlessly${emDash}organize chats, track deals, and collaborate with your team.`}
       buttonTitle="Try for free"
-    />
+    >
+      <span class="highlight">Meta Business Suite{`${space}`}</span>Alternative
+    </Heading>
   </Hero>
   <OfficialByMeta />
   <InfoBlock />
   <Footer />
 </Layout>
+
+<style lang="scss">
+  @use '../styles/styles.scss' as *;
+
+  .highlight {
+    color: var(--meta);
+    font-style: italic;
+    display: inline-block;
+  }
+</style>
