@@ -27,6 +27,7 @@ import TertiaryButton from '@components/buttons/TertiaryButton.astro'
   @use '../../styles/styles.scss' as *;
 
   .menu-sheet {
+    display: none;
     flex-direction: column;
     position: relative;
     opacity: 0;
@@ -37,6 +38,7 @@ import TertiaryButton from '@components/buttons/TertiaryButton.astro'
   }
 
   .menu-sheet.displayed {
+    display: flex;
     opacity: 1;
     transform: translateY(0);
   }
