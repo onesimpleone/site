@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets'
-import { paragraph, small } from '@styles'
+
 import MetaLogoImage from '@assets/images/meta-logo.svg'
 ---
 
@@ -15,7 +15,9 @@ import MetaLogoImage from '@assets/images/meta-logo.svg'
   </div>
 </section>
 
-<style define:vars={{ paragraph, small }}>
+<style lang="scss">
+  @use '../styles/styles.scss' as *;
+
   section {
     width: 100%;
     height: auto;
@@ -33,7 +35,7 @@ import MetaLogoImage from '@assets/images/meta-logo.svg'
   }
 
   .meta-logo {
-    width: 121px;
+    width: 119px;
     height: 24px;
     margin-right: 7px;
   }
@@ -46,13 +48,13 @@ import MetaLogoImage from '@assets/images/meta-logo.svg'
   }
 
   .heading {
-    font-size: var(--paragraph);
+    font-size: var(--text-size);
     font-weight: 600;
     text-align: center;
   }
 
   .subheading {
-    font-size: var(--small);
+    font-size: var(--small-text-size);
     font-weight: 500;
     text-align: center;
   }

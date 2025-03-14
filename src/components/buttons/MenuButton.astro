@@ -1,0 +1,57 @@
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const menuButton = document.getElementById('menu-button')
+    const menuSheet = document.getElementById('menu-sheet')
+    const menuIcon = document.getElementById('menu-icon')
+
+    if (!menuSheet || !menuButton || !menuIcon) {
+      return
+    }
+
+    menuButton.addEventListener('click', function () {
+      const isShouldOpen = menuButton.getAttribute('data-open') !== 'true'
+      menuSheet.classList.toggle('displayed', isShouldOpen)
+      menuIcon.className = `icon ${!isShouldOpen ? 'menu-icon' : 'x-icon'}`
+      menuButton.setAttribute('data-open', isShouldOpen.toString())
+    })
+  })
+</script>
+
+<a href="javascript:void(0);" id="menu-button" data-open="false">
+  <div class="icon menu-icon" id="menu-icon"></div>
+</a>
+
+<style>
+  .x-icon {
+    background: url('/src/assets/icons/x.svg');
+  }
+
+  .menu-icon {
+    background: url('/src/assets/icons/menu.svg');
+  }
+
+  a {
+    width: 48px;
+    height: 48px;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    color: transparent;
+    border: none;
+    border-radius: 14px;
+  }
+
+  .icon {
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: transform 0.2s ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .icon.x-icon {
+    transform: rotate(90deg);
+  }
+</style>

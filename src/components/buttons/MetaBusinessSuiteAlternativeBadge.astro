@@ -1,6 +1,4 @@
 ---
-import { info40, small } from '@styles'
-
 const { link, class: className } = Astro.props
 ---
 
@@ -12,7 +10,9 @@ const { link, class: className } = Astro.props
   </a>
 </div>
 
-<style define:vars={{ info40, small }}>
+<style lang="scss">
+  @use '../../styles/styles.scss' as *;
+
   .container {
     height: 100%;
   }
@@ -28,9 +28,9 @@ const { link, class: className } = Astro.props
   }
 
   p {
-    font-size: var(--small);
+    font-size: var(--small-text-size);
     font-weight: 650;
-    color: var(--info40);
+    color: var(--info-40);
   }
 
   a:hover {
@@ -41,7 +41,7 @@ const { link, class: className } = Astro.props
     opacity: 0.8;
   }
 
-  @media screen and (max-width: 743px) {
+  @media screen and (max-width: $max-large-phone-bp) {
     .container {
       display: none;
     }

@@ -1,23 +1,34 @@
 ---
-import Heading from '@components/texts/Heading.astro'
+import Heading from '@components/blocks/Heading.astro'
 import Layout from '@layouts/Layout.astro'
 import Header from '@layouts/Header.astro'
 import Hero from '@layouts/Hero.astro'
 import OfficialByMeta from '@layouts/OfficialByMeta.astro'
 import Footer from '@layouts/Footer.astro'
+import { space } from '@styles'
 ---
 
-<Layout>
+<Layout title="Instagram Business App">
   <Header isBadgeShown={true} />
   <Hero>
     <Heading
-      h1="Business messaging app for"
-      highlight="Instagram"
-      h2="Automate conversations, streamline team collaboration, and drive more sales – all with one powerful tool."
-      isMeta={false}
+      h2="A specially designed app for businesses on Instagram. Manage customers with ease."
       buttonTitle="Try for free"
-    />
+      >Business messaging app for{`${space}`}<span class="highlight"
+        >Instagram</span
+      ></Heading
+    >
   </Hero>
   <OfficialByMeta />
   <Footer />
 </Layout>
+
+<style lang="scss">
+  @use '../styles/styles.scss' as *;
+
+  .highlight {
+    color: var(--instagram);
+    font-style: italic;
+    display: inline-block;
+  }
+</style>

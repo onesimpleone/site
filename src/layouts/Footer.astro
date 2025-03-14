@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets'
-import { grayscale50, small, simpleGray } from '@styles'
-import InstagramButton from '@components/socials/InstagramButton.astro'
+
+import InstagramButton from '@components/buttons/InstagramButton.astro'
 import FooterLink from '@components/links/FooterLink.astro'
 import LogoSmallImage from '@assets/images/logo-small.svg'
 ---
@@ -21,13 +21,15 @@ import LogoSmallImage from '@assets/images/logo-small.svg'
   </div>
 </footer>
 
-<style define:vars={{ grayscale50, small, simpleGray }}>
+<style lang="scss">
+  @use '../styles/styles.scss' as *;
+
   footer {
     width: 100%;
     height: auto;
     margin: 0 auto;
     justify-content: center;
-    background-color: var(--grayscale50);
+    background-color: var(--grayscale-50);
   }
 
   .container {
@@ -50,9 +52,9 @@ import LogoSmallImage from '@assets/images/logo-small.svg'
   }
 
   .copyright {
-    font-size: var(--small);
+    font-size: var(--small-text-size);
     font-weight: 500;
-    color: var(--simpleGray);
+    color: var(--simple-gray);
     text-align: center;
   }
 </style>

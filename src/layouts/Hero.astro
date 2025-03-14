@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets'
-import interfaceImage from '@assets/images/interface.png'
+import interfaceImage from '@assets/images/interface.jpg'
 ---
 
 <section>
@@ -14,7 +14,9 @@ import interfaceImage from '@assets/images/interface.png'
   </div>
 </section>
 
-<style>
+<style lang="scss">
+  @use '../styles/styles.scss' as *;
+
   section {
     width: 100%;
     height: auto;
@@ -52,7 +54,7 @@ import interfaceImage from '@assets/images/interface.png'
   }
 
   /* Mobile styles */
-  @media screen and (max-width: 743px) {
+  @media screen and (max-width: $max-large-phone-bp) {
     section {
       padding: 72px 18px 48px 18px;
       flex-direction: column;
@@ -80,7 +82,7 @@ import interfaceImage from '@assets/images/interface.png'
   }
 
   /* Small tablet styles */
-  @media screen and (min-width: 744px) and (max-width: 926px) {
+  @media screen and (min-width: $min-small-tablet-bp) and (max-width: $max-small-tablet-bp) {
     section {
       padding: 96px 36px 48px 36px;
       flex-direction: column;
@@ -108,7 +110,7 @@ import interfaceImage from '@assets/images/interface.png'
   }
 
   /** Large tablet styles */
-  @media screen and (min-width: 927px) and (max-width: 1271px) {
+  @media screen and (min-width: $min-large-tablet-bp) and (max-width: $max-large-tablet-bp) {
     section {
       padding: 48px 36px 36px 36px;
       flex-direction: row;
