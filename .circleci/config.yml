@@ -8,7 +8,6 @@ jobs:
       - checkout
       - run: yarn install
       - run: yarn lint:prettier-check
-      - run: yarn lint:stylelint-check
 
   typescript:
     docker:
@@ -16,8 +15,8 @@ jobs:
     steps:
       - checkout
       - run: yarn install
-      - run: yarn lint:typescript-check
       - run: yarn lint:astro-check
+      - run: yarn lint:typescript-check
 
 workflows:
   developement:

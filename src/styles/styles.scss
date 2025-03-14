@@ -1,0 +1,41 @@
+:root {
+  /** Colors */
+  --grayscale-0: #fff;
+  --grayscale-40: #1e2027;
+  --grayscale-50: #000;
+  --primary-5: #e3ecf5;
+  --senary-5: #ededff;
+  --senary-15: #d2d1ff;
+  --senary-25: #9290f6;
+  --info-40: #2f63cc;
+  --fresh-white: #f9faf7;
+  --simple-gray: #808080;
+  --instagram: #f475ff;
+  --meta: #77a3f6;
+
+  /** Sizes */
+  --h1-size: 3rem;
+  --h2-size: 1.4444rem;
+  --h3-size: 1.2222rem;
+  --text-size: 1rem;
+  --small-text-size: 0.8333rem;
+  --h1-mobile-size: 2.5rem;
+}
+
+/** Breakpoints - start */
+$max-small-phone: 374px;
+
+$min-medium-phone-bp: 375px;
+$max-medium-phone-bp: 624px;
+
+$min-large-phone-bp: 625px;
+$max-large-phone-bp: 743px;
+
+$min-small-tablet-bp: 744px;
+$max-small-tablet-bp: 926px;
+
+$min-large-tablet-bp: 927px;
+$max-large-tablet-bp: 1271px;
+
+$min-desktop-bp: 1272px;
+/** Breakpoints - end */

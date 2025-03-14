@@ -1,7 +1,10 @@
 ---
 import SecondaryButton from '@components/buttons/SecondaryButton.astro'
-import Logo from '@components/buttons/Logo.astro'
+import Logo from '@components/buttons/HeaderLogo.astro'
 import MetaBusinessSuiteAlternativeBadge from '@components/buttons/MetaBusinessSuiteAlternativeBadge.astro'
+import Menu from '@components/blocks/Menu.astro'
+import MenuButton from '@components/buttons/MenuButton.astro'
+import { linkToForm } from '@assets/constants'
 
 const { isBadgeShown } = Astro.props
 ---
@@ -10,25 +13,34 @@ const { isBadgeShown } = Astro.props
   <div class="container">
     <Logo />
     <div class="buttons">
-      {
-        isBadgeShown && (
-          <MetaBusinessSuiteAlternativeBadge link="/meta-business-suite-alternative" />
-        )
-      }
-      <SecondaryButton
-        title="Sign up"
-        link="https://forms.gle/axdDXjw7k4HpR1Z39"
-      />
+      <div class="buttons mobile-buttons">
+        <MenuButton />
+      </div>
+
+      <div class="buttons tablet-desktop-buttons">
+        {
+          isBadgeShown && (
+            <MetaBusinessSuiteAlternativeBadge link="/meta-business-suite-alternative" />
+          )
+        }
+        <SecondaryButton title="Sign up" link={linkToForm} />
+      </div>
     </div>
   </div>
 </header>
+<Menu />
 
-<style>
+<style lang="scss">
+  @use '../styles/styles.scss' as *;
+
   header {
     width: 100%;
     height: 64px;
     margin: 0 auto;
     justify-content: center;
+    background-color: var(--fresh-white);
+    position: relative;
+    z-index: 1;
   }
 
   .container {
@@ -46,19 +58,45 @@ const { isBadgeShown } = Astro.props
     gap: 16px;
   }
 
+  .mobile-buttons {
+    display: none;
+  }
+
+  .tablet-desktop-buttons {
+    display: none;
+  }
+
   @media screen and (max-width: 743px) {
     .container {
-      padding: 0 18px;
+      padding: 0 12px 0 18px;
+    }
+
+    .mobile-buttons {
+      display: flex;
     }
   }
 
-  @media screen and (min-width: 744px) and (max-width: 1271px) {
+  @media screen and (min-width: $min-small-tablet-bp) and (max-width: $max-large-tablet-bp) {
     .container {
       padding: 0 36px;
     }
 
     .buttons {
       gap: 24px;
+    }
+
+    .mobile-buttons {
+      display: none;
+    }
+
+    .tablet-desktop-buttons {
+      display: flex;
+    }
+  }
+
+  @media screen and (min-width: $min-desktop-bp) {
+    .tablet-desktop-buttons {
+      display: flex;
     }
   }
 </style>

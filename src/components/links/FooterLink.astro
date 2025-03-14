@@ -1,5 +1,4 @@
 ---
-import { small, grayscale0, senary20 } from '@styles'
 const { link, title } = Astro.props
 ---
 
@@ -7,15 +6,17 @@ const { link, title } = Astro.props
   {title}
 </a>
 
-<style define:vars={{ small, grayscale0, senary20 }}>
+<style lang="scss">
+  @use '../../styles/styles.scss' as *;
+
   .link {
     padding: 12px;
-    font-size: var(--small);
+    font-size: var(--small-text-size);
     font-weight: 500;
-    color: var(--grayscale0);
+    color: var(--grayscale-0);
   }
 
   .link:hover {
-    color: var(--senary20);
+    color: var(--senary-15);
   }
 </style>

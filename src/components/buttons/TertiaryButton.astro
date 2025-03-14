@@ -1,8 +1,9 @@
 ---
-const { link, title } = Astro.props
+const { link, title, class: className } = Astro.props
 ---
 
 <a href={link}>
+  <div class={`icon ${className}`}></div>
   {title}
 </a>
 
@@ -12,8 +13,8 @@ const { link, title } = Astro.props
   a {
     align-items: center;
     justify-content: center;
-    padding: 10px 14px;
-    background-color: var(--senary-5);
+    padding: 13px 24px 13px 18px;
+    background-color: var(--senary-15);
     font-size: var(--small-text-size);
     font-weight: 700;
     letter-spacing: 0.0083rem;
@@ -22,13 +23,15 @@ const { link, title } = Astro.props
   }
 
   a:hover {
-    background-color: var(--senary-15);
+    background-color: var(--senary-25);
     cursor: pointer;
   }
 
-  @media screen and (max-width: $max-large-tablet-bp) {
-    a {
-      padding: 12px 24px;
-    }
+  .icon {
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 6px;
   }
 </style>

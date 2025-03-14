@@ -1,2 +1,2 @@
-export * from './colors'
-export * from './typography'
+export const space = '\u00A0'
+export const emDash = '\u2014'

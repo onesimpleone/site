@@ -7,13 +7,15 @@ import logoImage from '@assets/images/logo.svg'
   <Image src={logoImage} class="logo" alt="OneSimple logo" />
 </a>
 
-<style>
+<style lang="scss">
+  @use '../../styles/styles.scss' as *;
+
   .logo {
     width: 132px;
     height: 26px;
   }
 
-  @media screen and (max-width: 743px) {
+  @media screen and (max-width: $max-large-phone-bp) {
     .logo {
       width: 145px;
       height: 29px;

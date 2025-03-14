@@ -1,0 +1,101 @@
+---
+import PrimaryButton from '@components/buttons/PrimaryButton.astro'
+import { linkToForm } from '@assets/constants'
+import { emDash } from '@styles'
+---
+
+<section>
+  <div class="container">
+    <div class="content">
+      <h2>Perfect alternative of Meta Business Suite</h2>
+
+      <p>
+        OneSimple app adds <strong>essential features</strong> missing in Meta Business
+        Suite. Now you can manage chats with categories, track deals, store any
+        customer and deal information, collaborate seamlessly with your team, and
+        quickly find conversations using powerful filters.
+      </p>
+      <p>
+        OneSimple app <strong>fixes stability issues</strong>{
+          `${emDash}`
+        }instant notifications, ultra-fast chat loading, and seamless data
+        backup.
+      </p>
+      <p>
+        We designed OneSimple as a <strong>fast and easy-to-use</strong> app for
+        businesses that don’t want to waste time setting up complex software.
+      </p>
+      <p>
+        Work on any device you prefer{`${emDash}`}<strong>Android</strong>, <strong
+          >iOS</strong
+        >, or directly in your
+        <strong>browser</strong>.
+      </p>
+
+      <PrimaryButton title="Try it now" link={linkToForm} />
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use '../styles/styles.scss' as *;
+
+  section {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    justify-content: center;
+    padding-top: 72px;
+    padding-bottom: 96px;
+    background-image: url('/src/assets/images/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .container {
+    max-width: 1200px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .content {
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    justify-content: center;
+    max-width: 588px;
+  }
+
+  h2 {
+    font-size: var(--h2-size);
+    font-weight: 700;
+    text-align: center;
+  }
+
+  p {
+    display: inline;
+    font-size: var(--text-size);
+    font-weight: 400;
+    line-height: 25px;
+    text-align: justify;
+    width: 100%;
+  }
+
+  p strong {
+    display: inline;
+    font-weight: 600;
+  }
+
+  @media screen and (max-width: $max-medium-phone-bp) {
+    section {
+      padding: 64px 18px 96px 18px;
+    }
+  }
+
+  @media screen and (min-width: $min-large-phone-bp) and (max-width: $max-large-phone-bp) {
+    section {
+      padding-top: 64px;
+    }
+  }
+</style>
