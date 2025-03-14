@@ -4,20 +4,22 @@ import Layout from '@layouts/Layout.astro'
 import Header from '@layouts/Header.astro'
 import Hero from '@layouts/Hero.astro'
 import OfficialByMeta from '@layouts/OfficialByMeta.astro'
+import SeoBlock from '@layouts/SeoBlock.astro'
 import Footer from '@layouts/Footer.astro'
 ---
 
 <Layout>
-  <Header isBadgeShown={true} />
+  <Header isBadgeShown={false} />
   <Hero>
     <Heading
-      h1="Business messaging app for"
-      highlight="Instagram"
+      h1="Perfect alternative for"
+      highlight="Meta Business Suite"
       h2="Automate conversations, streamline team collaboration, and drive more sales – all with one powerful tool."
-      isMeta={false}
+      isMeta={true}
       buttonTitle="Try for free"
     />
   </Hero>
   <OfficialByMeta />
+  <SeoBlock />
   <Footer />
 </Layout>

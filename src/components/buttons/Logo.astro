@@ -1,0 +1,22 @@
+---
+import { Image } from 'astro:assets'
+import logoImage from '@assets/images/logo.svg'
+---
+
+<a href="/">
+  <Image src={logoImage} class="logo" alt="OneSimple logo" />
+</a>
+
+<style>
+  .logo {
+    width: 132px;
+    height: 26px;
+  }
+
+  @media screen and (max-width: 743px) {
+    .logo {
+      width: 145px;
+      height: 29px;
+    }
+  }
+</style>

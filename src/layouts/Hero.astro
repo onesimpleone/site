@@ -1,0 +1,133 @@
+---
+import { Image } from 'astro:assets'
+import interfaceImage from '@assets/images/interface.png'
+---
+
+<section>
+  <div class="container">
+    <div class="content">
+      <slot />
+      <div id="separator"></div>
+    </div>
+
+    <Image src={interfaceImage} alt="Interface image" class="image" />
+  </div>
+</section>
+
+<style>
+  section {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    justify-content: center;
+    overflow-x: hidden;
+  }
+
+  .container {
+    max-width: 1200px;
+    padding-top: 36px;
+    padding-bottom: 36px;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .content {
+    display: flex;
+    max-width: 588px;
+    width: 100%;
+    margin-top: 120px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #separator {
+    width: 588px;
+    display: block;
+  }
+
+  .image {
+    width: 939px;
+    height: 683px;
+    margin-left: 44px;
+  }
+
+  /* Mobile styles */
+  @media screen and (max-width: 743px) {
+    section {
+      padding: 72px 18px 48px 18px;
+      flex-direction: column;
+    }
+
+    .container {
+      flex-direction: column;
+      padding: 0;
+    }
+
+    .content {
+      margin-top: 0;
+      margin-bottom: 72px;
+    }
+
+    #separator {
+      width: 0;
+    }
+
+    .image {
+      width: 889px;
+      height: 647px;
+      margin-left: 0;
+    }
+  }
+
+  /* Small tablet styles */
+  @media screen and (min-width: 744px) and (max-width: 926px) {
+    section {
+      padding: 96px 36px 48px 36px;
+      flex-direction: column;
+    }
+
+    .container {
+      flex-direction: column;
+      padding: 0;
+    }
+
+    .content {
+      margin-top: 0;
+      margin-bottom: 72px;
+    }
+
+    #separator {
+      width: 0;
+    }
+
+    .image {
+      width: 862px;
+      height: 627px;
+      margin-left: 0;
+    }
+  }
+
+  /** Large tablet styles */
+  @media screen and (min-width: 927px) and (max-width: 1271px) {
+    section {
+      padding: 48px 36px 36px 36px;
+      flex-direction: row;
+    }
+
+    .container {
+      max-width: 100%;
+      flex-direction: row;
+      padding: 0;
+    }
+
+    #separator {
+      width: 482px;
+    }
+
+    .image {
+      width: 862px;
+      height: 627px;
+      margin-left: 24px;
+    }
+  }
+</style>

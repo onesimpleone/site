@@ -1,0 +1,59 @@
+---
+import { Image } from 'astro:assets'
+import { paragraph, small } from '@styles'
+import MetaLogoImage from '@assets/images/meta-logo.svg'
+---
+
+<section>
+  <div class="container">
+    <Image src={MetaLogoImage} alt="Meta logo" class="meta-logo" />
+
+    <div class="content">
+      <p class="heading">Powered by official Meta API</p>
+      <p class="subheading">Safe. No need to share your password.</p>
+    </div>
+  </div>
+</section>
+
+<style define:vars={{ paragraph, small }}>
+  section {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    justify-content: center;
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .container {
+    max-width: 1200px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .meta-logo {
+    width: 121px;
+    height: 24px;
+    margin-right: 7px;
+  }
+
+  .content {
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 18px;
+    align-items: center;
+  }
+
+  .heading {
+    font-size: var(--paragraph);
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .subheading {
+    font-size: var(--small);
+    font-weight: 500;
+    text-align: center;
+  }
+</style>

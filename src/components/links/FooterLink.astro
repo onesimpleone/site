@@ -1,0 +1,21 @@
+---
+import { small, grayscale0, senary20 } from '@styles'
+const { link, title } = Astro.props
+---
+
+<a href={link} class="link" target="_blank" rel="noopener noreferrer">
+  {title}
+</a>
+
+<style define:vars={{ small, grayscale0, senary20 }}>
+  .link {
+    padding: 12px;
+    font-size: var(--small);
+    font-weight: 500;
+    color: var(--grayscale0);
+  }
+
+  .link:hover {
+    color: var(--senary20);
+  }
+</style>
