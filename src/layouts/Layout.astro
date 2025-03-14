@@ -5,6 +5,7 @@ const fullTitle = `${title} | OneSimple`
 const fullDescription =
   description ||
   'A dedicated app for Instagram businesses to manage customers. Organize chats by category and track deals with ease.'
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 ---
 
 <!doctype html>
@@ -18,7 +19,7 @@ const fullDescription =
     <title>{fullTitle}</title>
     <meta name="description" content={fullDescription} />
     <meta name="theme-color" content="#0D0D0D" />
-    <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonicalURL} />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
