@@ -8,15 +8,13 @@ import Footer from '@layouts/Footer.astro'
 import { space } from '@styles'
 ---
 
-<Layout title="Instagram Business App">
+<Layout title="Inbox for Instagram Business">
   <Header isBadgeShown={true} />
   <Hero>
     <Heading
       h2="A specially designed app for businesses on Instagram. Manage customers with ease."
       buttonTitle="Try for free"
-      >Business messaging app for{`${space}`}<span class="highlight"
-        >Instagram</span
-      ></Heading
+      >Inbox for{`${space}`}<br /><span class="highlight">Instagram</span> Business</Heading
     >
   </Hero>
   <OfficialByMeta />
@@ -28,7 +26,7 @@ import { space } from '@styles'
 
   .highlight {
     color: var(--instagram);
-    font-style: italic;
     display: inline-block;
+    font-weight: 695;
   }
 </style>
