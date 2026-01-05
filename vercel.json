@@ -10,6 +10,18 @@
       ]
     }
   ],
+  "redirects": [
+    {
+      "source": "/reddit/:word",
+      "destination": "/?utm_source=reddit&utm_medium=social&utm_campaign=:word",
+      "permanent": false
+    },
+    {
+      "source": "/reddit",
+      "destination": "/?utm_source=reddit&utm_medium=social&utm_campaign=main",
+      "permanent": false
+    }
+  ],
   "rewrites": [
     {
       "source": "/app/:path*",
