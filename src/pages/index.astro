@@ -25,7 +25,16 @@ import { space } from '@styles'
   @use '../styles/styles.scss' as *;
 
   .highlight {
-    color: var(--instagram);
+    -webkit-background-clip: text;
+    background-image: linear-gradient(
+      72.44deg,
+      #ffd600 9.9%,
+      #ff7a00 41%,
+      #ff0169 89.43%
+    );
+    background-repeat: no-repeat;
+    color: transparent;
+    padding-bottom: 2px;
     display: inline-block;
     font-weight: 695;
   }
