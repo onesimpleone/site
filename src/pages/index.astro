@@ -12,11 +12,9 @@ import { space } from '@styles'
   <Header isBadgeShown={true} />
   <Hero>
     <Heading
-      h2="Built for small businesses and creators who live in their DMs."
+      h2="Space for your DMs. For creators and businesses."
       buttonTitle="Try for free"
-      >Business Inbox<br />for{`${space}`}<span class="highlight"
-        >Instagram</span
-      ></Heading
+      >Inbox<br />for{`${space}`}<span class="highlight">Instagram</span> Business</Heading
     >
   </Hero>
   <OfficialByMeta />
@@ -27,7 +25,16 @@ import { space } from '@styles'
   @use '../styles/styles.scss' as *;
 
   .highlight {
-    color: var(--instagram);
+    -webkit-background-clip: text;
+    background-image: linear-gradient(
+      72.44deg,
+      #ffd600 9.9%,
+      #ff7a00 41%,
+      #ff0169 89.43%
+    );
+    background-repeat: no-repeat;
+    color: transparent;
+    padding-bottom: 2px;
     display: inline-block;
     font-weight: 695;
   }
