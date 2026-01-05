@@ -18,7 +18,7 @@
     },
     {
       "source": "/reddit",
-      "destination": "/?utm_source=reddit&utm_medium=social&utm_campaign=main",
+      "destination": "/?utm_source=reddit&utm_medium=social&utm_campaign=profile",
       "permanent": false
     }
   ],
