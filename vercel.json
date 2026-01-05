@@ -10,6 +10,18 @@
       ]
     }
   ],
+  "redirects": [
+    {
+      "source": "/go/:platform/:campaign",
+      "destination": "/?utm_source=:platform&utm_medium=social&utm_campaign=:campaign",
+      "permanent": false
+    },
+    {
+      "source": "/go/:platform",
+      "destination": "/?utm_source=:platform&utm_medium=social&utm_campaign=main",
+      "permanent": false
+    }
+  ],
   "rewrites": [
     {
       "source": "/app/:path*",
