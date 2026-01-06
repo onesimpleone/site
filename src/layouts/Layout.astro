@@ -1,4 +1,6 @@
 ---
+import Analytics from '@vercel/analytics/astro'
+
 const { title, description } = Astro.props
 
 const fullTitle = `${title} | OneSimple`
@@ -114,6 +116,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
   <body>
     <slot />
+    <Analytics />
   </body>
 </html>
 
