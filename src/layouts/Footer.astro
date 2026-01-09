@@ -4,6 +4,8 @@ import { Image } from 'astro:assets'
 import InstagramButton from '@components/buttons/InstagramButton.astro'
 import FooterLink from '@components/links/FooterLink.astro'
 import LogoSmallImage from '@assets/images/logo-small.svg'
+
+const currentYear = new Date().getFullYear()
 ---
 
 <footer>
@@ -17,7 +19,9 @@ import LogoSmallImage from '@assets/images/logo-small.svg'
       <FooterLink title="Privacy" link="/documents/privacy.html" />
       <FooterLink title="Cookies" link="/documents/cookies.html" />
     </div>
-    <p class="copyright">© 2025 OneSimple, Inc. All rights reserved.</p>
+    <p class="copyright">
+      © {currentYear} OneSimple, Inc. All rights reserved.
+    </p>
   </div>
 </footer>
 
